@@ -1,146 +1,136 @@
-// (?:(^\s*(?<!\.)\b\w+\b)((?:\s*(?<!\.)\b\w+\b)*)\s*(=)|(?:(?<!\.)\b\w+\b)((?:\s*(?<!\.)\b\w+\b)*)\s*(=)|((?:\s*(?<!\.)\b\w+\b)*)\s*(=))
-
-/***
- * (?:
- *    (^\s*(?<!\.)\b\w+\b)      # 1
- *    ((?:\s*(?<!\.)\b\w+\b)*)  # 2
- *    \s*
- *    (=)                       # 3
- * |  (?:(?<!\.)\b\w+\b)
- *    ((?:\s*(?<!\.)\b\w+\b)*)  # 4
- *    \s*
- *    (=)                       # 5
- * |  ((?:\s*(?<!\.)\b\w+\b)*)  # 6
- *    \s*
- *    (=)                       # 7
- * )
- */
-
-import { Reg } from '../../../source/es6/utils/reg.js'
-import {
-  assertEquals
-} from "https://deno.land/std@0.82.0/testing/asserts.ts";
-
+import Reg from '../../../source/es6/utils/reg/reg.js'
 
 const word =
-  new Reg()
-  .arrPipe([
-    '\\b'
-  , '\\w+'
-  , '\\b'
-  ]);
-
-const word_ts = '\\b\\w+\\b'
-Deno.test(
-  'Regex word'
-, () =>
-  assertEquals(word.toString(), word_ts)
-)
+  Reg.pipe({
+    reg: Reg.createReg()
+  , content: [
+      '\\b'
+    , '\\w+'
+    , '\\b'
+    ]
+  })
 
 const withOutDot =
-  new Reg()
-  .notPrecededBy(
-    '\\.'
-  )
-
-const withOutDot_ts = '(?<!\\.)'
-Deno.test(
-  'Regex withOutDot'
-, () =>
-  assertEquals(withOutDot.toString(), withOutDot_ts)
-)
+  Reg.notPrecededBy({
+    reg: Reg.createReg()
+  , content: '\\.'
+  })
 
 // withSpace && withOutDotWor
 const wswodw =
-  new Reg()
-  .arrPipe([
+  Reg.pipe({
+    reg: Reg.createReg()
+  , content: [
     '\\s*'
   , withOutDot
   , word
-  ])
+  ]
+  })
 
-Deno.test(
-  'Regex wswodw'
-, () =>
-  assertEquals(wswodw.toString()
-  , `\\s*${withOutDot_ts}${word_ts}`
-  )
-)
+const reg =
+  Reg.pipe({
+    reg: Reg.createReg()
+  , content: [
 
-const O =
+      Reg
+      .group({
+        reg: Reg.createReg()
+      , content:
+          Reg
+          .pipe({
+            reg: Reg.createReg()
+          , content: [
+              '^'
+            , wswodw
+            ]
+          })
+      })  
 
-  new Reg()
-  .arrPipe([
+    ,
 
-    r => r
-    .group()
-    .arrPipe([
-      '^'
-    , wswodw
-    ])
+      Reg
+      .group({
+        reg: Reg.createReg()
+      , content:
+          Reg
+          .pipe({
+            reg: Reg.createReg()
+          , content: [
+              Reg
+              .unGroup({
+                reg: Reg.createReg()
+              , content: wswodw
+              })
+            , '*'
+            ]
+          })
+      })
 
-  , r => r
-    .group()
-    .arrPipe([
+    , Reg.pipe({
+        reg: Reg.createReg()
+      , content: '\\s*'
+      })
 
-      r => r
-      .unGroup(
-        wswodw
-      )
+    , Reg.group({
+        reg: Reg.createReg()
+      , content: '='
+      })
 
-    , '*'
+    ]
+  })
 
-    ])
+export {
+  word
+, withOutDot
+, wswodw
+, reg
+}
 
-  // , r => r
-  //   .pipe('\\s*')
-  , '\\s*'
+// const O =
 
-  , r => r
-    .group(
-      '='
-    )
-  ])
+//   new Reg()
+//   .arrPipe([
 
-const F = Reg([
-  Reg.group([
-    '^'
-  , wswodw
-  ])
-, Reg.group([
-    Reg.unGroup(wswodw)
-  , '*'
-  ])
-, '\\s*'
-, Reg.group('=')
-])
+//     r => r
+//     .group()
+//     .arrPipe([
+//       '^'
+//     , wswodw
+//     ])
 
-const regex_ts = [
-  '('
-, '^'
-, '\\s*'
-, withOutDot_ts
-, word_ts
-, ')'
-, '('
-, '('
-, '?:'
-, '\\s*'
-, withOutDot_ts
-, word_ts
-, ')'
-, '*'
-, ')'
-, '\\s*'
-, '('
-, '='
-, ')'
-].join('')
+//   , r => r
+//     .group()
+//     .arrPipe([
 
-Deno.test(
-  'Regex regex'
-, () => {
-    assertEquals(F.toString(), regex_ts)
-    assertEquals(O.toString(), regex_ts)
-  }
-)
+//       r => r
+//       .unGroup(
+//         wswodw
+//       )
+
+//     , '*'
+
+//     ])
+
+//   // , r => r
+//   //   .pipe('\\s*')
+//   , '\\s*'
+
+//   , r => r
+//     .group(
+//       '='
+//     )
+//   ])
+
+// // const F = Reg([
+// //   Reg.group([
+// //     '^'
+// //   , wswodw
+// //   ])
+// // , Reg.group([
+// //     Reg.unGroup(wswodw)
+// //   , '*'
+// //   ])
+// // , '\\s*'
+// // , Reg.group('=')
+// // ])
+

@@ -1,0 +1,1 @@
+import './reg.test.js'
