@@ -36,15 +36,13 @@ const Regex = (function() {
 
   Regex_.prototype.pipe = function(content) {
 
-    console.log(this.cb.toString())
-
-    this.reg = this.cb(
+    this.reg = (
       Reg.pipe({
         reg: this.reg
       , content: contentToStr(content)
       })
     )
-
+    this.reg = (this.cb(this)).reg
     this.cb = id
 
     return this
@@ -60,11 +58,10 @@ const Regex = (function() {
 
         ? (function() {
 
-            this.cb = (that) => {
+            this.cb = (_content) => {
 
-              return this
-              .pipe(
-                (new Regex())[c](that)
+              return new Regex()[c](
+                _content
               )
 
             }
