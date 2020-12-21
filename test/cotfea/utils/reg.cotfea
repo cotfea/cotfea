@@ -1,0 +1,68 @@
+# (?:(^\s*(?<!\.)\b\w+\b)((?:\s*(?<!\.)\b\w+\b)*)\s*(=)|(?:(?<!\.)\b\w+\b)((?:\s*(?<!\.)\b\w+\b)*)\s*(=)|((?:\s*(?<!\.)\b\w+\b)*)\s*(=))
+
+# (?:
+#   (^\s*(?<!\.)\b\w+\b)      # 1
+#   ((?:\s*(?<!\.)\b\w+\b)*)  # 2
+#   \s*
+#   (=)                       # 3
+# | (?:(?<!\.)\b\w+\b)
+#   ((?:\s*(?<!\.)\b\w+\b)*)  # 4
+#   \s*
+#   (=)                       # 5
+# | ((?:\s*(?<!\.)\b\w+\b)*)  # 6
+#   \s*
+#   (=)                       # 7
+# )
+{ Reg } = import
+  '/source/cotfea/utils/reg'
+
+word =
+  new Reg()
+  .arrPipe [
+    '\\b'
+    '\\w+'
+    '\\b'
+  ]
+  .toString()
+
+withOutDot = 
+  new Reg()
+  .notPrecededBy '\\.'
+
+# withSpace && withOutDotWord
+wswodw = 
+  new Reg()
+  .arrPipe [
+    '\\s*'
+    withOutDot
+    word
+  ]
+
+reg =
+  new Reg()
+  .arrPipe [
+
+    r = r
+    .group()
+    .arrPipe [
+      '^'
+      wswodw
+    ]
+
+    r = r
+    .group()
+    .arrPipe [
+      r = r
+      .unGroup wswodw
+      '*'
+    ]
+
+    r = r
+    .pipe '\\s*'
+
+    r = r
+    .group '='
+
+  ]
+
+console.log reg.toString()

@@ -1,0 +1,35 @@
+###
+reg = Reg
+  - notPrecededBy
+    - '[\w$]'
+  - group
+    - '/'
+  - followedBy [
+    notFollowedBy
+      - '[/*+?]'
+    group
+      - '.+' 
+    group
+      - '/'
+    '[gimuy]*'
+    notFollowedBy [
+      '\s*'
+      '[\w$/(]'
+    ]
+  ]
+###
+
+People do _ =
+
+  People_ name =
+    @name = name
+    @
+
+  People_::hello _ =
+    "hello, I'm #{this.name}."
+
+  People_
+
+pp = new People 'cotfea'
+console.log pp.hello()
+console.log pp.name

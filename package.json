@@ -1,0 +1,49 @@
+{
+  "name": "cotfea",
+  "displayName": "cotfea",
+  "description": "cotfea",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.51.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "scripts": {
+    "syntaxes": "js-yaml ./syntaxes/cotfea.tmLanguage.yml > ./syntaxes/cotfea.tmLanguage.json"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "cotfea",
+        "extensions": [
+          ".cotfea"
+        ]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "cotfea",
+        "scopeName": "source.cotfea",
+        "path": "./syntaxes/cotfea.tmLanguage.json"
+      }
+    ],
+    "configurationDefaults": {
+      "[cotfea]": {
+        "editor.tokenColorCustomizations": {
+          "textMateRules": [
+            {
+              "scope": "punctuation.definition.array.begin.bracket.square.cotfea",
+              "settings": {
+                "foreground": "#FFC600"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "devDependencies": {
+    "js-yaml": "^3.14.1"
+  }
+}

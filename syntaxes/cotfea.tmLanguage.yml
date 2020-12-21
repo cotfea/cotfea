@@ -1,0 +1,241 @@
+---
+name: CoTFea
+scopeName: source.cotfea
+patterns:
+
+- name: comment.block.cotfea
+  begin: "(?<!#)###(?!#)"
+  beginCaptures:
+    '0':
+      name: punctuation.definition.comment.coffee
+  end: "###"
+  endCaptures:
+    '0':
+      name: punctuation.definition.comment.coffee
+  patterns:
+  - name: comment.block.content.cotfea
+    match: '(.*).'
+    captures:
+      '1':
+        name: punctuation.definition.comment.coffee
+
+- name: comment.line.number-sign.cotfea
+  begin: "#"
+  beginCaptures:
+    '0':
+      name: punctuation.definition.comment.coffee
+  end: "$"
+
+- include: "#single_quoted_string"
+- include: "#double_quoted_string"
+
+- name: string.quoted.single.heredoc.cotfea
+  begin: "'''"
+  beginCaptures:
+    '0':
+      name: punctuation.definition.string.begin.coffee
+  end: "'''"
+  endCaptures:
+    '0':
+      name: punctuation.definition.string.end.coffee
+
+- name: string.quoted.double.heredoc.cotfea
+  begin: '"""'
+  beginCaptures:
+    '0':
+      name: punctuation.definition.string.begin.coffee
+  end: '"""'
+  endCaptures:
+    '0':
+      name: punctuation.definition.string.end.coffee
+
+- begin: "{"
+  beginCaptures:
+    '0':
+      name: meta.brace.curly.coffee
+  end: "}"
+  endCaptures:
+    '0':
+      name: meta.brace.curly.coffee
+
+- begin: "\\["
+  beginCaptures:
+    '0':
+      # name: punctuation.definition.array.begin.bracket.square.cotfea
+      name: keyword.operator.assignment.compound.coffee
+  end: "\\]"
+  endCaptures:
+    '0':
+      # name: punctuation.definition.array.end.bracket.square.cotfea
+      name: keyword.operator.assignment.compound.coffee
+  patterns:
+  - include: "$self"
+
+- begin: "\\("
+  beginCaptures:
+    '0':
+      name: meta.brace.round.coffee
+  end: "\\)"
+  endCaptures:
+    '0':
+      name: meta.brace.round.coffee
+
+- name: meta.definition.array.sign.cotfea
+  begin: "(?<=^\\s*)-"
+  beginCaptures:
+    '0':
+      name: keyword.operator.assignment.compound.coffee
+  end: "\\s"
+
+- name: meta.definition.function.name.parameters.cotfea
+  # (?:(^\s*(?<!\.)\b\w+\b)((?:\s*(?<!\.)\b\w+\b)*)\s*(=)|(?:(?<!\.)\b\w+\b)((?:\s*(?<!\.)\b\w+\b)*)\s*(=)|((?:\s*(?<!\.)\b\w+\b)*)\s*(=))
+  # (?:
+  #   (^\s*(?<!\.)\b\w+\b)      # 1
+  #   ((?:\s*(?<!\.)\b\w+\b)*)  # 2
+  #   \s*
+  #   (=)                       # 3
+  # | (?:(?<!\.)\b\w+\b)
+  #   ((?:\s*(?<!\.)\b\w+\b)*)  # 4
+  #   \s*
+  #   (=)                       # 5
+  # | ((?:\s*(?<!\.)\b\w+\b)*)  # 6
+  #   \s*
+  #   (=)                       # 7
+  # )
+  begin: "
+    (?:
+      (^\\s*(?<!\\.)\\b\\w+\\b)((?:\\s*(?<!\\.)\\b\\w+\\b)*)\\s*(=)
+    | (?:(?<!\\.)\\b\\w+\\b)((?:\\s*(?<!\\.)\\b\\w+\\b)*)\\s*(=)
+    | ((?:\\s*(?<!\\.)\\b\\w+\\b)*)\\s*(=)
+    )
+  "
+  beginCaptures:
+    # '1':
+
+    '2':
+      name: keyword.operator.assignment.compound.coffee
+    '4':
+      name: keyword.operator.assignment.compound.coffee
+    '6':
+      name: keyword.operator.assignment.compound.coffee
+
+    '3':
+      name: keyword.operator.assignment.compound.coffee
+    '5':
+      name: keyword.operator.assignment.compound.coffee
+    '7':
+      name: keyword.operator.assignment.compound.coffee
+  end: "\\s"
+
+- include: "#operators"
+- include: "#numbers"
+
+repository:
+
+  double_quoted_string:
+    patterns:
+    - begin: "\""
+      beginCaptures:
+        '0':
+          name: punctuation.definition.string.begin.coffee
+      end: "\""
+      endCaptures:
+        '0':
+          name: punctuation.definition.string.end.coffee
+      name: string.quoted.double.coffee
+
+  single_quoted_string:
+    patterns:
+    - begin: "'"
+      beginCaptures:
+        '0':
+          name: punctuation.definition.string.begin.coffee
+      end: "'"
+      endCaptures:
+        '0':
+          name: punctuation.definition.string.end.coffee
+      name: string.quoted.single.coffee
+
+  numbers:
+    patterns:
+    - match: "\\b(?<!\\$)0(x|X)[0-9a-fA-F]+\\b(?!\\$)"
+      name: constant.numeric.hex.coffee
+    - match: "\\b(?<!\\$)0(b|B)[01]+\\b(?!\\$)"
+      name: constant.numeric.binary.coffee
+    - match: "\\b(?<!\\$)0(o|O)?[0-7]+\\b(?!\\$)"
+      name: constant.numeric.octal.coffee
+    - match: |-
+        (?x)
+        (?<!\$)
+        (?:
+          (?:\b[0-9]+(\.)[0-9]+[eE][+-]?[0-9]+\b) # 1.1E+3
+        | (?:\b[0-9]+(\.)[eE][+-]?[0-9]+\b)       # 1.E+3
+        | (?:\B(\.)[0-9]+[eE][+-]?[0-9]+\b)       # .1E+3
+        | (?:\b[0-9]+[eE][+-]?[0-9]+\b)           # 1E+3
+        | (?:\b[0-9]+(\.)[0-9]+\b)                # 1.1
+        | (?:\b[0-9]+(?=\.{2,3}))                 # 1 followed by a slice
+        | (?:\b[0-9]+(\.)\B)                      # 1.
+        | (?:\B(\.)[0-9]+\b)                      # .1
+        | (?:\b[0-9]+\b(?!\.))                    # 1
+        )
+        (?!\$)
+      captures:
+        '0':
+          name: constant.numeric.decimal.coffee
+        '1':
+          name: punctuation.separator.decimal.period.coffee
+        '2':
+          name: punctuation.separator.decimal.period.coffee
+        '3':
+          name: punctuation.separator.decimal.period.coffee
+        '4':
+          name: punctuation.separator.decimal.period.coffee
+        '5':
+          name: punctuation.separator.decimal.period.coffee
+        '6':
+          name: punctuation.separator.decimal.period.coffee
+
+  operators:
+    patterns:
+    - match: "(?:([a-zA-Z$_][\\w$]*)?\\s+|(?<![\\w$]))(and=|or=)"
+      captures:
+        '1':
+          name: variable.assignment.coffee
+        '2':
+          name: keyword.operator.assignment.compound.coffee
+    - match: "([a-zA-Z$_][\\w$]*)?\\s*(%=|\\+=|-=|\\*=|&&=|\\|\\|=|\\?=|(?<!\\()/=)"
+      captures:
+        '1':
+          name: variable.assignment.coffee
+        '2':
+          name: keyword.operator.assignment.compound.coffee
+    - match: "([a-zA-Z$_][\\w$]*)?\\s*(&=|\\^=|<<=|>>=|>>>=|\\|=)"
+      captures:
+        '1':
+          name: variable.assignment.coffee
+        '2':
+          name: keyword.operator.assignment.compound.bitwise.coffee
+    - match: "<<|>>>|>>"
+      name: keyword.operator.bitwise.shift.coffee
+    - match: "!=|<=|>=|==|<|>"
+      name: keyword.operator.comparison.coffee
+    - match: "&&|!|\\|\\|"
+      name: keyword.operator.logical.coffee
+    - match: "&|\\||\\^|~"
+      name: keyword.operator.bitwise.coffee
+    - match: "([a-zA-Z$_][\\w$]*)?\\s*(=|:(?!:))(?![>=])"
+      captures:
+        '1':
+          name: variable.assignment.coffee
+        '2':
+          name: keyword.operator.assignment.coffee
+    - match: "--"
+      name: keyword.operator.decrement.coffee
+    - match: "\\+\\+"
+      name: keyword.operator.increment.coffee
+    - match: "\\.\\.\\."
+      name: keyword.operator.splat.coffee
+    - match: "\\?"
+      name: keyword.operator.existential.coffee
+    - match: "%|\\*|/|-|\\+"
+      name: keyword.operator.coffee
