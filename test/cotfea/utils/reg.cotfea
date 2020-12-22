@@ -40,29 +40,41 @@ wswodw =
 
 reg =
   new Reg()
-  .arrPipe [
+  .arrPipe 
 
-    r = r
-    .group()
-    .arrPipe [
-      '^'
-      wswodw
-    ]
+    - r = r
+      .group()
+      .arrPipe [
+        '^'
+        wswodw
+      ]
 
-    r = r
-    .group()
-    .arrPipe [
-      r = r
-      .unGroup wswodw
-      '*'
-    ]
+    - r = r
+      .group()
+      .arrPipe [
+        r = r
+        .unGroup wswodw
+        '*'
+      ]
 
-    r = r
-    .pipe '\\s*'
+    # - r = r
+    #   .pipe '\\s*'
+    - '\\s*'
 
-    r = r
-    .group '='
+    - r = r
+      .group '='
 
-  ]
+  Reg 
+    - group [
+        '^'
+        wswodw
+      ]
+    - group [
+        unGroup wswodu
+        '*'
+      ]
+    - '\\s*'
+    - group '='
+
 
 console.log reg.toString()

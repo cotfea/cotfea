@@ -41,7 +41,7 @@ const wswodw =
   , word
   ])
 
-const reg =
+const O =
 
   new Reg()
   .arrPipe([
@@ -57,7 +57,7 @@ const reg =
     .group()
     .arrPipe([
 
-      new Reg()
+      r => r
       .unGroup(
         wswodw
       )
@@ -76,6 +76,22 @@ const reg =
     )
   ])
 
-console.log(
-  reg.toString()
-)
+const F = Reg([
+  Reg.group([
+    '^'
+  , wswodw
+  ])
+, Reg.group([
+    Reg.unGroup(wswodw)
+  , '*'
+  ])
+, '\\s*'
+, Reg.group('=')
+])
+
+console.log({
+  style: {
+    O: O.toString()
+  , F: F.toString()
+  }
+})
