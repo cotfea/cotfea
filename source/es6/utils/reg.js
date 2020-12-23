@@ -106,8 +106,6 @@ const Reg = (function() {
           .bind(this)()
         : this.pipe(action(content))
 
-   
-
     return Object.keys(apiKeys).forEach(c => {
       c === 'group'
       ? this[c] = wrapper(group)
