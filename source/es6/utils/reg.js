@@ -52,11 +52,16 @@ const Reg = (function() {
       })()
   }
 
-  const checkContent = isFunc =>
-    typeof isFunc === 'string'
+  const checkContent = isFunc => {
+    isFunc === undefined
+    || isFunc === null
+    ? isFunc = ''
+    : null
+    return typeof isFunc === 'string'
     || Array.isArray(isFunc)
     ? isFunc
     : isFunc.toString()
+  }
 
   Reg_.prototype.pipe = function(content) {
     this.sReg = join([
@@ -83,7 +88,14 @@ const Reg = (function() {
   }
 
   Reg_.prototype.or = function(content) {
-    return this.arrPipe(['|', content])
+    const defAct = function(){
+      return this.arrPipe(['|', content])
+    }
+    return Array.isArray(content)
+    ? content.length !== 1
+      ? this.arrPipe(content.join('|'))
+      : defAct.bind(this)()
+    : defAct.bind(this)()
   }
 
   const group = content => `(${checkContent(content)})`
@@ -124,14 +136,18 @@ const Reg = (function() {
 Object.keys(
   apiKeys
 )
+.concat([
+  'or'
+])
 .forEach(
-  c =>
+  c => {
     Reg[c] = arg =>
       r => r[c]()[
         Array.isArray(arg)
         ? 'arrPipe'
         : 'pipe'
       ](arg)
+  }
 )
 
 export {

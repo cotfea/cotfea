@@ -144,3 +144,17 @@ Deno.test(
     assertEquals(O.toString(), regex_ts)
   }
 )
+
+console.log(
+  Reg(
+    // new Reg()
+    Reg
+    .unGroup()
+    // .or(
+    //   Reg.group(
+    //     '^'
+    //   )
+    // )
+  )
+  .toString()
+)
