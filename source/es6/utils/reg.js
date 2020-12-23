@@ -13,11 +13,24 @@ const join = arr => arr.join('')
 
 const id = (content) => content
 
+const apiKeys = {
+  group: ''
+, unGroup: ':'
+, atomicGroup: '>'
+
+, followedBy: '='
+, notFollowedBy: '!'
+, precededBy: '<='
+, notPrecededBy: '<!'
+}
+
 const Reg = (function() {
 
   const Reg_ = function(arg) {
+
     return this instanceof Reg
-    ? (function() {
+
+    ? (function(){
         this.sReg = ''
         this.cbFunc = id
         this.cb = function(content) {
@@ -28,6 +41,7 @@ const Reg = (function() {
         this.wrapper()
         return this
       }).bind(this)()
+
     : (function(){
         const reg = new Reg()
         return arg !== undefined
@@ -38,12 +52,11 @@ const Reg = (function() {
       })()
   }
 
-  const checkContent = isFunc => {
-    return typeof isFunc === 'string'
+  const checkContent = isFunc =>
+    typeof isFunc === 'string'
     || Array.isArray(isFunc)
     ? isFunc
     : isFunc.toString()
-  }
 
   Reg_.prototype.pipe = function(content) {
     this.sReg = join([
@@ -51,26 +64,26 @@ const Reg = (function() {
     , this.cb(checkContent(content))
     ])
     return this
-  };
+  }
 
   Reg_.prototype.arrPipe = function(content) {
     return this.pipe(
       typeof content === 'function'
       ? content(new Reg())
       : Array.isArray(content)
-      ? content.reduce(
-          (r, c, i) =>
+      ? content.reduce( // join(content)
+          (r, c) =>
             typeof c === 'function'
             ? c(r)
             : r.pipe(c)
         , new Reg() 
         )
-      : join(checkContent(content))
+      : content
     )
   }
 
   Reg_.prototype.or = function(content) {
-    return this.arrPipe(['|', checkContent(content)])
+    return this.arrPipe(['|', content])
   }
 
   const group = content => `(${checkContent(content)})`
@@ -87,27 +100,18 @@ const Reg = (function() {
       content =>
         content === undefined
         ? (function() {
-          this.cbFunc = action
-          return this
-        })
-        .bind(this)()
-      : this.pipe(action(checkContent(content)))
+            this.cbFunc = action
+            return this
+          })
+          .bind(this)()
+        : this.pipe(action(content))
 
-    const conf = {
-      group: ''
-    , unGroup: ':'
-    , atomicGroup: '>'
+   
 
-    , followedBy: '='
-    , notFollowedBy: '!'
-    , precededBy: '<='
-    , notPrecededBy: '<!'
-    }
-
-    return Object.keys(conf).forEach(c => {
+    return Object.keys(apiKeys).forEach(c => {
       c === 'group'
       ? this[c] = wrapper(group)
-      : this[c] = wrapper(useBy(`?${conf[c]}`))
+      : this[c] = wrapper(useBy(`?${apiKeys[c]}`))
       return this
     })
   }
@@ -119,25 +123,18 @@ const Reg = (function() {
   return Reg_
 })()
 
-Reg.group = function(arg) {
-  return Array.isArray(arg)
-  ? r => r
-    .group()
-    .arrPipe(arg)
-  : r => r
-    .group()
-    .pipe(arg)
-}
-
-Reg.unGroup = function(arg) {
-  return Array.isArray(arg)
-  ? r => r
-    .unGroup()
-    .arrPipe(arg)
-  : r => r
-    .unGroup()
-    .pipe(arg)
-}
+Object.keys(
+  apiKeys
+)
+.forEach(
+  c =>
+    Reg[c] = arg =>
+      r => r[c]()[
+        Array.isArray(arg)
+        ? 'arrPipe'
+        : 'pipe'
+      ](arg)
+)
 
 export {
   Reg
