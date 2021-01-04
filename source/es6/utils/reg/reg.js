@@ -23,10 +23,15 @@ const apiKeys = {
 
 const join = arrChar => arrChar.join('')
 
-const createReg = () => ({
-  cache: ''
-, cb: id
-})
+const createReg = (arg) => {
+  return arg?.cache !== undefined
+  ? {
+    cache: arg.cache
+  }
+  : {
+    cache: ''
+  }
+}
 
 const regString = ({
   reg: {
@@ -34,22 +39,13 @@ const regString = ({
   }
 }) => cache
 
-const id = ({
-  reg
-, content
-}) => ({
-  reg
-, content
-})
-
 const pipeOne = ({
   reg: {
     cache
-  , cb
   }
 , content
-}) => cb({
-  reg: {
+}) => {
+  return {
     cache: join([
       cache
     , typeof content !== 'string'
@@ -58,15 +54,14 @@ const pipeOne = ({
         })
       : content
     ])
-  , cb: id
   }
-}).reg
+}
 
 const pipeAll = ({
   reg
 , content
-}) =>
-  content.reduce(
+}) => {
+  return content.reduce(
     (r, c) =>
       pipeOne({
         reg: r
@@ -74,11 +69,13 @@ const pipeAll = ({
       })
   , reg
   )
+}
 
-const pipe = (para) =>
-  Array.isArray(para.content)
+const pipe = (para) => {
+  return Array.isArray(para.content)
   ? pipeAll(para)
   : pipeOne(para)
+}
 
 const or = ({
   reg
