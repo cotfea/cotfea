@@ -5,7 +5,8 @@ const id = content => content
 const Regex = (function() {
 
   const Regex_ = function(reg) {
-    reg?.cache
+    reg !== undefined
+    && Object.keys(reg) === ['cache']
     ? this.reg = reg
     : this.reg = Reg.createReg()
     this.cb = id
@@ -16,13 +17,8 @@ const Regex = (function() {
 
     const InstanceToStr = (content) => {
       return typeof content !== 'string'
-      ? content instanceof Regex
-        ? content.toString()
-        : content.cache !== undefined
-        ? Reg.regString({
-            reg: content
-          })
-        : content
+      && content instanceof Regex
+      ? content.toString()
       : content
     }
 
@@ -40,62 +36,56 @@ const Regex = (function() {
 
   Regex_.prototype.pipe = function(content) {
 
-    this.reg = //this.cb(
-        Reg.pipe({
+    console.log(this.cb.toString())
+
+    this.reg = this.cb(
+      Reg.pipe({
         reg: this.reg
       , content: contentToStr(content)
       })
-    //)
+    )
+
+    this.cb = id
 
     return this
   }
 
-  // Object.keys(apiKeys)
-  // .forEach(
-  //   c =>
+  Object.keys(apiKeys)
+  .forEach(
+    c =>
 
-  //     Regex_.prototype[c] = function(content) {
+      Regex_.prototype[c] = function(content) {
 
-  //       return content === undefined
+        return content === undefined
 
-  //       ? (function() {
+        ? (function() {
 
-  //           const newRegex = new Regex()
+            this.cb = (that) => {
 
-  //           newRegex.cb = ({
-  //             reg
-  //           }) => {
+              return this
+              .pipe(
+                (new Regex())[c](that)
+              )
 
-  //             this.reg.cache = Reg.regString({
-  //               reg: Reg[c]({
-  //                 reg: {
-  //                   ...reg
-  //                 , cache: ''
-  //                 }
-  //               , content: contentToStr(reg)
-  //               })
-  //             })
+            }
 
-  //             return this
-  //           }
+            return this
 
-  //           return newRegex
+          }).bind(this)()
 
-  //         }).bind(this)()
+        : (function() {
 
-  //       : (function() {
+            this.reg = Reg[c]({
+              reg: this.reg
+            , content: contentToStr(content)
+            })
 
-  //           this.reg = Reg[c]({
-  //             reg: this.reg
-  //           , content: contentToStr(content)
-  //           })
+            return this
 
-  //           return this
+          }).bind(this)()
 
-  //         }).bind(this)()
-
-  //     }
-  // )
+      }
+  )
 
   Regex_.prototype.toString = function() {
     return Reg.regString({

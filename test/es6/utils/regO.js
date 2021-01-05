@@ -18,31 +18,37 @@ import Reg from '../../../source/es6/utils/reg/index.js'
 //   .toString()
 // )
 
-// const word =
-//   new Reg()
-//   .pipe([
-//     '\\b'
-//   , '\\w+'
-//   , '\\b'
-//   ])
+const word =
+  new Reg()
+  .pipe([
+    '\\b'
+  , '\\w+'
+  , '\\b'
+  ])
 
-// console.log(word.toString())
+console.log({
+  word: word.toString()
+})
 
-// const withOutDot =
-//   new Reg()
-//   .notPrecededBy('\\.')
+const withOutDot =
+  new Reg()
+  .notPrecededBy('\\.')
 
-// console.log(withOutDot.toString())
+console.log({
+  withOutDot: withOutDot.toString()
+})
 
-// const wswodw =
-//   new Reg()
-//   .pipe([
-//     '\\s*'
-//   , withOutDot
-//   , word
-//   ])
+const wswodw =
+  new Reg()
+  .pipe([
+    '\\s*'
+  , withOutDot
+  , word
+  ])
 
-// console.log(wswodw.toString())
+console.log({
+  wswodw: wswodw.toString()
+})
 
 const reg =
 
@@ -65,13 +71,11 @@ const reg =
     // new Reg()
     // .group()
 
-      new Reg()
+      // new Reg()
       // .pipe([
-        // new Reg()
-        // .unGroup(
-          // '^'
-          // wswodw
-        // )
+        new Reg()
+        .unGroup()
+        .pipe(wswodw)
       // , '*'
       // ])
 
