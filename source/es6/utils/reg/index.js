@@ -16,10 +16,14 @@ const Regex = (function() {
   const contentToStr = (content) => {
 
     const InstanceToStr = (content) => {
+
       return typeof content !== 'string'
       && content instanceof Regex
       ? content.toString()
+      : typeof content === 'function'
+      ? InstanceToStr(content(new Regex()))
       : content
+
     }
 
     return Array.isArray(content)

@@ -1,17 +1,14 @@
-import Reg from '../../../source/es6/utils/reg/reg.js'
 import {
   assertEquals
 } from "https://deno.land/std@0.82.0/testing/asserts.ts"
-import * as regFp from './reg.js'
+import * as regOF from './regOF.js'
 import assertData from './assertData.js'
 
 Deno.test(
   assertData.word.name
 , () =>
   assertEquals(
-    Reg.regString({
-      reg: regFp.word
-    })
+    regOF.word.toString()
   , assertData.word.value
   )
 )
@@ -20,9 +17,7 @@ Deno.test(
   assertData.withOutDot.name
 , () =>
   assertEquals(
-    Reg.regString({
-      reg: regFp.withOutDot
-    })
+    regOF.withOutDot.toString()
   , assertData.withOutDot.value
   )
 )
@@ -31,9 +26,7 @@ Deno.test(
   assertData.wswodw.name
 , () =>
   assertEquals(
-    Reg.regString({
-      reg: regFp.wswodw
-    })
+    regOF.wswodw.toString()
   , assertData.wswodw.value
   )
 )
@@ -42,9 +35,7 @@ Deno.test(
   assertData.reg.name
 , () =>
   assertEquals(
-    Reg.regString({
-      reg: regFp.reg
-    })
+    regOF.reg.toString()
   , assertData.reg.value
   )
 )

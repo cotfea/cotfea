@@ -23,15 +23,14 @@ const apiKeys = {
 
 const join = arrChar => arrChar.join('')
 
-const createReg = (arg) => {
-  return arg?.cache !== undefined
+const createReg = arg =>
+  arg?.cache !== undefined
   ? {
     cache: arg.cache
   }
   : {
     cache: ''
   }
-}
 
 const regString = ({
   reg: {

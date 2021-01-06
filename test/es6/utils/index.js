@@ -1,1 +1,1 @@
-import './reg.test.js'
+import './index.test.js'
