@@ -1,4 +1,4 @@
-import Reg from '../../../source/es6/utils/reg/reg.js'
+import Reg from '../../../source/es6/utils/reg/FP.js'
 import {
   assertEquals
 } from "https://deno.land/std@0.82.0/testing/asserts.ts"
