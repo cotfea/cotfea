@@ -86,41 +86,6 @@ export {
 , reg
 }
 
-// const O =
-
-//   new Reg()
-//   .arrPipe([
-
-//     r => r
-//     .group()
-//     .arrPipe([
-//       '^'
-//     , wswodw
-//     ])
-
-//   , r => r
-//     .group()
-//     .arrPipe([
-
-//       r => r
-//       .unGroup(
-//         wswodw
-//       )
-
-//     , '*'
-
-//     ])
-
-//   // , r => r
-//   //   .pipe('\\s*')
-//   , '\\s*'
-
-//   , r => r
-//     .group(
-//       '='
-//     )
-//   ])
-
 // // const F = Reg([
 // //   Reg.group([
 // //     '^'

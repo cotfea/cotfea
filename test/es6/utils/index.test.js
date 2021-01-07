@@ -6,6 +6,7 @@ import {
 import * as regFP from './regFP.js'
 import * as regOO from './regOO.js'
 import * as regOF from './regOF.js'
+import * as regFO from './regFO.js'
 
 import assertData from './assertData.js'
 
@@ -13,6 +14,7 @@ const regFn = {
   FP: regFP
 , OO: regOO
 , OF: regOF
+, FO: regFO
 }
 
 const testFn = (testWay) => (testName) =>
@@ -26,6 +28,7 @@ const testWays = [
   'FP'
 , 'OO'
 , 'OF'
+, 'FO'
 ]
 
 const testNames = [
