@@ -1,4 +1,4 @@
-import Reg from '../../../source/es6/utils/reg/index.js'
+import Reg from '../src/index.js'
 
 const word =
   Reg([
@@ -22,8 +22,7 @@ const reg =
   Reg([
 
     Reg
-    .group()
-    .pipe([
+    .group([
       '^'
     , wswodw
     ])
@@ -31,17 +30,17 @@ const reg =
   ,
 
     Reg
-    .group()
-    .pipe([
+    .group([
       Reg
-      .unGroup()
-      .pipe(wswodw)
+      .unGroup(
+        wswodw
+      )
     , '*'
     ])
 
   ,
 
-    Reg('\\s*')
+    '\\s*'
 
   ,
 

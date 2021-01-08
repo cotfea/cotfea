@@ -1,4 +1,4 @@
-import Reg from '../../../source/es6/utils/reg/FP.js'
+import Reg from '../src/FP.js'
 
 const word =
   Reg.pipe({
@@ -85,17 +85,3 @@ export {
 , wswodw
 , reg
 }
-
-// // const F = Reg([
-// //   Reg.group([
-// //     '^'
-// //   , wswodw
-// //   ])
-// // , Reg.group([
-// //     Reg.unGroup(wswodw)
-// //   , '*'
-// //   ])
-// // , '\\s*'
-// // , Reg.group('=')
-// // ])
-

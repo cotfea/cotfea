@@ -38,19 +38,26 @@ const Regex = (function() {
     : InstanceToStr(content)
   }
 
-  Regex_.prototype.pipe = function(content) {
+  [
+    'pipe'
+  , 'or'
+  ]
+  .forEach(
+    c =>
+      Regex_.prototype[c] = function(content) {
+        
+        this.reg = (
+          Reg[c]({
+            reg: this.reg
+          , content: contentToStr(content)
+          })
+        )
+        this.reg = (this.cb(this)).reg
+        this.cb = id
 
-    this.reg = (
-      Reg.pipe({
-        reg: this.reg
-      , content: contentToStr(content)
-      })
-    )
-    this.reg = (this.cb(this)).reg
-    this.cb = id
-
-    return this
-  }
+        return this
+      }
+  )
 
   Object.keys(apiKeys)
   .forEach(
