@@ -1,4 +1,4 @@
-import Reg from '../../../source/es6/utils/reg/OO.js'
+import Reg from '../src/OO.js'
 
 const word =
   new Reg()

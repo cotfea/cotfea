@@ -1,4 +1,4 @@
-import Reg from '../../../source/es6/utils/reg/FP.js'
+import Reg from '../src/FP.js'
 
 const word =
   Reg.pipe({

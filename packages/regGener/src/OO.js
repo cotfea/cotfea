@@ -35,6 +35,7 @@ const Regex = (function() {
           ]
       , []
       )
+      .join('')
     : InstanceToStr(content)
   }
 
