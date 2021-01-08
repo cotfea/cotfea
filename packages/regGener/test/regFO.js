@@ -40,15 +40,13 @@ const reg =
 
   ,
 
-    Reg('\\s*')
+    '\\s*'
 
   ,
 
     Reg.group('=')
 
   ])
-
-console.log(reg)
 
 export {
   word

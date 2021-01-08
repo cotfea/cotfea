@@ -85,17 +85,3 @@ export {
 , wswodw
 , reg
 }
-
-// // const F = Reg([
-// //   Reg.group([
-// //     '^'
-// //   , wswodw
-// //   ])
-// // , Reg.group([
-// //     Reg.unGroup(wswodw)
-// //   , '*'
-// //   ])
-// // , '\\s*'
-// // , Reg.group('=')
-// // ])
-
