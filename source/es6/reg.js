@@ -28,45 +28,68 @@ const word =
 const withOutDot =
   Reg.notPrecededBy('\\.')
 
-const wswodw =
+const multiSpace = '\\s*'
+
+const ww =
   Reg([
-    '\\s*'
-  , withOutDot
+    withOutDot
   , word
   ])
 
-const reg = 
-  Reg.or([
-    Reg.pipe([
+const mww =
+  Reg([
+    multiSpace
+  , ww
+  ])
 
+const reg = 
+  Reg
+  .unGroup()
+  .or([
+    Reg.pipe([
       Reg
       .group([
         '^'
-      , wswodw
+      , mww
       ])
-
     ,
-
       Reg
       .group([
         Reg
         .unGroup(
-          wswodw
+          mww
         )
       , '*'
       ])
 
-    ,
-
-      '\\s*'
-
-    ,
-
-      Reg.group('=')
+    , multiSpace
+    , Reg.group('=')
 
     ])
-    // .or('abc')
-  , 'abc'
+  ,
+    Reg.pipe([
+      Reg.unGroup(ww)
+    ,
+      Reg.group([
+        Reg.unGroup(mww)
+      , '*'
+      ])
+
+    , multiSpace
+    , Reg.group('=')
+    ])
+  ,
+    Reg.pipe([
+      Reg.group([
+        Reg.unGroup(
+          mww
+        )
+      , '*'
+      ])
+    , multiSpace
+    , Reg.group('=')
+    ])
   ])
 
 console.log(reg.toString())
+console.log("(?:(^\\s*(?<!\\.)\\b\\w+\\b)((?:\\s*(?<!\\.)\\b\\w+\\b)*)\\s*(=)|(?:(?<!\\.)\\b\\w+\\b)((?:\\s*(?<!\\.)\\b\\w+\\b)*)\\s*(=)|((?:\\s*(?<!\\.)\\b\\w+\\b)*)\\s*(=))")
