@@ -98,9 +98,26 @@ const group = ({
     reg
   , content: [
       '('
-    , content
+    , ...(
+      Array.isArray(content)
+      ? content
+      : [ content ]
+      )
     , ')'
     ]
+    .reduce(
+      (r, c) =>
+        [
+          ...r
+        , typeof c !== 'string'
+          ? regString({
+              reg: c
+            })
+          : c
+        ]
+    , []
+    )
+    .join('')
   })
 
 const groupBy = (() =>
@@ -123,11 +140,11 @@ const groupBy = (() =>
               ? '?'
               : ''
             , apiKeys[c]
-            , typeof content !== 'string'
-              ? regString({
-                  reg: content
-                })
-              : content
+            , ...(
+              Array.isArray(content)
+              ? content
+              : [ content ]
+              ) 
             ]
           })
         })

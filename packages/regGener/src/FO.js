@@ -5,6 +5,7 @@ const Regex = (args) => (new Reg()).pipe(args)
 
 const apikeys = [
   'pipe'
+, 'or'
 , ...Object.keys(apiKeys)
 ]
 
