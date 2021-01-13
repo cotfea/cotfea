@@ -14,6 +14,8 @@ import brace_curly from './patterns/brace_curly.js'
 import bracket_square from './patterns/bracket_square.js'
 import brace_round from './patterns/brace_round.js'
 
+import array_sign from './patterns/array_sign.js'
+
 const tmLanguageConfig = {
   name: 'CoTFea'
 , scopeName: 'source.cotfea'
@@ -31,6 +33,8 @@ const tmLanguageConfig = {
   , brace_curly
   , bracket_square
   , brace_round
+
+  , array_sign
 
   ])
 , repository: {

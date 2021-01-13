@@ -120,6 +120,16 @@
           "name": "meta.brace.round.coffee"
         }
       }
+    },
+    {
+      "name": "meta.definition.array.sign.cotfea",
+      "begin": "(?<=^\\s*)-",
+      "beginCaptures": {
+        "0": {
+          "name": "keyword.operator.assignment.compound.coffee"
+        }
+      },
+      "end": "\\s"
     }
   ],
   "repository": {
