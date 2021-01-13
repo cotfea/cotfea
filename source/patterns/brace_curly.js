@@ -2,8 +2,7 @@ import { patternsPeer } from './util.js'
 
 const parttern = patternsPeer(
   {
-    name: ''
-  , sign: {
+    sign: {
       begin: '{'
     , end: '}'
     }

@@ -1,28 +1,25 @@
+import {
+  patternsWapper
+, patternsPeer
+} from './util.js'
 import Reg from '../../packages/regGener/index.js'
 
 const capturesColor =
   'punctuation.definition.comment.coffee'
 
-const comment = {
+const comment = patternsPeer({
   name: 'comment.block.cotfea'
-, begin: // '(?<!#)###(?!#)'
-    Reg.pipe([
-      Reg.notPrecededBy('#')
-    , '#{3}'
-    , Reg.notFollowedBy('#')
-    ])
-, beginCaptures: {
-    0: {
-      name: capturesColor
-    }
+, sign: {
+    begin:
+      Reg.pipe([
+        Reg.notPrecededBy('#')
+      , '#{3}'
+      , Reg.notFollowedBy('#')
+      ]).toString()
+  , end: '#{3}'
   }
-, end: '#{3}'
-, endCaptures: {
-    0: {
-      name: capturesColor
-    }
-  }
-, patterns: [
+, color: capturesColor
+, options: patternsWapper([
     {
       name: 'comment.block.content.cotfea'
     , match: '(.*).'
@@ -32,7 +29,7 @@ const comment = {
         }
       }
     }
-  ]
-}
+  ])
+})
 
 export default comment

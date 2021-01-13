@@ -1,8 +1,11 @@
-import { patternsPeer } from './util.js'
+import {
+  include
+, patternsWapper
+, patternsPeer
+} from './util.js'
 
 const pattern = patternsPeer({
-  name: ''
-, sign: {
+  sign: {
     begin: "\\["
   , end: "\\]"
   }
@@ -11,6 +14,9 @@ const pattern = patternsPeer({
 // punctuation.definition.array.begin.bracket.square.cotfea
 // punctuation.definition.array.end.bracket.square.cotfea
 
+, options: patternsWapper([
+    include('$self')
+  ])
 })
 
 export default pattern

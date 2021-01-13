@@ -1,32 +1,31 @@
-import {
-  patternsWapper
-, patternsPeer
-} from './util.js'
+import { patternsPeer } from './util.js'
+
+const colorName = (be) =>
+  `punctuation.definition.string.${be}.coffee`
 
 const partternGener = ({
   type = ''
 , sign = ''
 }) =>
-  patternsWapper(
-    patternsPeer({
-      name: `string.quoted.${type}.coffee`
-    , sign
-    , color: {
-        begin: 'punctuation.definition.string.begin.coffee'
-      , end: 'punctuation.definition.string.end.coffee'
-      }
-    })
-  )
+  patternsPeer({
+    name: `string.quoted.${type}.coffee`
+  , sign
+  , color: {
+      begin: colorName('begin')
+    , end: colorName('end')
+    }
+  })
 
-const parttern = partternGener({
-  single: {
-    type: 'single'
-  , sign: "'"
+const parttern =
+  {
+    single: partternGener({
+      type: 'single'
+    , sign: "'"
+    })
+  , double: partternGener({
+      type: 'double'
+    , sign: '"'
+    })
   }
-, double: {
-    type: 'double'
-  , sign: '"'
-  }
-})
 
 export default parttern

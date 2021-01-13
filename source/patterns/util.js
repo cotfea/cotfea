@@ -1,47 +1,111 @@
-const patternsWapper = patterns => {
+const include = repo => ({
+  include: repo
+})
+
+const patternsWapper = patterns => ({
   patterns
-}
+})
 
-const patternsPeer = ({
-  name = ''
-, sign = {}
-, color = {}
-}) => {
+const patternsPeer = args => {
 
-  const _color =
-    typeof color !== 'string'
-    ? color
+  const {
+    sign = {}
+  , color = {}
+  } = args
+
+  const name = Object.keys(args).includes('name')
+  ? { name: args.name }
+  : {}
+
+  const options = Object.keys(args).includes('options')
+  ? args.options
+  : {}
+
+  const checkBE = args => {
+    const keys = Object.keys(args)
+
+    return keys.includes('begin')
+    || keys.includes('end')
+    ? true
+    : false
+  }
+
+  // assign undefiend
+  const assud = ({
+    ck
+  , obj
+  }) =>
+    ck
+    ? obj
+    : undefined
+
+  const ensureBE = be =>
+    checkBE(be)
+    ? {
+      ...assud({
+      ck: be.begin
+    , obj: { begin: be.begin } 
+    })
+    , ...assud({
+      ck: be.end
+    , obj: { end: be.end } 
+    })
+    }
     : {
-      begin: color
-    , end: color
+      begin: be
+    , end: be
     }
 
-  const _sign =
-    typeof sign !== 'string'
-    ? sign
-    : {
-      begin: sign
-    , end: sign
-    }
+  const ensure = {
+    sign: ensureBE(sign)
+  , color: ensureBE(color)
+  }
 
   return {
-    name
-  , begin: _sign.begin
-  , beginCaptures: {
-      0: {
-        name: _color.begin
+    ...name
+
+  , ...assud({
+      ck: ensure.sign.begin
+    , obj: {
+        begin: ensure.sign.begin
       }
-    }
-  , end: _sign.end
-  , endCaptures: {
-      0: {
-        name: _color.end
+    })
+
+  , ...assud({
+      ck: ensure.color.begin
+    , obj: {
+        beginCaptures: {
+          0: {
+            name: ensure.color.begin
+          }
+        }
       }
-    }
+    })
+
+  , ...assud({
+      ck: ensure.sign.end
+    , obj: {
+        end: ensure.sign.end
+      }
+    })
+
+  , ...assud({
+      ck: ensure.color.end
+    , obj: {
+        endCaptures: {
+          0: {
+            name: ensure.color.end
+          }
+        }
+      }
+    })
+
+  , ...options
   }
 }
 
 export {
-  patternsWapper
+  include
+, patternsWapper
 , patternsPeer
 }

@@ -1,12 +1,14 @@
-const comment = {
+import { patternsPeer } from './util.js'
+
+const comment = patternsPeer({
   name: "comment.line.number-sign.cotfea"
-, begin: "#"
-, beginCaptures: {
-    0: {
-      name: "punctuation.definition.comment.coffee"
-    }
+, sign: {
+    begin: '#'
+  , end: '$'
   }
-, end: "$"
-}
+, color: {
+    begin: "punctuation.definition.comment.coffee"
+  }
+})
 
 export default comment

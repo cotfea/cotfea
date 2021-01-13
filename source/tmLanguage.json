@@ -4,11 +4,7 @@
   "patterns": [
     {
       "name": "comment.block.cotfea",
-      "begin": {
-        "reg": {
-          "cache": "(?<!#)#{3}(?!#)"
-        }
-      },
+      "begin": "(?<!#)#{3}(?!#)",
       "beginCaptures": {
         "0": {
           "name": "punctuation.definition.comment.coffee"
@@ -31,6 +27,135 @@
           }
         }
       ]
+    },
+    {
+      "name": "comment.line.number-sign.cotfea",
+      "begin": "#",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.comment.coffee"
+        }
+      },
+      "end": "$"
+    },
+    {
+      "include": "#signle_quoted_string"
+    },
+    {
+      "include": "#double_quoted_string"
+    },
+    {
+      "name": "string.quoted.single.heredoc.cotfea",
+      "begin": "'''",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.coffee"
+        }
+      },
+      "end": "'''",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.coffee"
+        }
+      }
+    },
+    {
+      "name": "string.quoted.double.heredoc.cotfea",
+      "begin": "\"\"\"",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.coffee"
+        }
+      },
+      "end": "\"\"\"",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.coffee"
+        }
+      }
+    },
+    {
+      "begin": "{",
+      "beginCaptures": {
+        "0": {
+          "name": "meta.brace.curly.coffee"
+        }
+      },
+      "end": "}",
+      "endCaptures": {
+        "0": {
+          "name": "meta.brace.curly.coffee"
+        }
+      }
+    },
+    {
+      "begin": "\\[",
+      "beginCaptures": {
+        "0": {
+          "name": "keyword.operator.assignment.compound.coffee"
+        }
+      },
+      "end": "\\]",
+      "endCaptures": {
+        "0": {
+          "name": "keyword.operator.assignment.compound.coffee"
+        }
+      },
+      "patterns": [
+        {
+          "include": "$self"
+        }
+      ]
+    },
+    {
+      "begin": "\\(",
+      "beginCaptures": {
+        "0": {
+          "name": "meta.brace.round.coffee"
+        }
+      },
+      "end": "\\)",
+      "endCaptures": {
+        "0": {
+          "name": "meta.brace.round.coffee"
+        }
+      }
     }
-  ]
+  ],
+  "repository": {
+    "double_quoted_string": {
+      "patterns": {
+        "name": "string.quoted.double.coffee",
+        "begin": "\"",
+        "beginCaptures": {
+          "0": {
+            "name": "punctuation.definition.string.begin.coffee"
+          }
+        },
+        "end": "\"",
+        "endCaptures": {
+          "0": {
+            "name": "punctuation.definition.string.end.coffee"
+          }
+        }
+      }
+    },
+    "single_quoted_string": {
+      "patterns": {
+        "name": "string.quoted.single.coffee",
+        "begin": "'",
+        "beginCaptures": {
+          "0": {
+            "name": "punctuation.definition.string.begin.coffee"
+          }
+        },
+        "end": "'",
+        "endCaptures": {
+          "0": {
+            "name": "punctuation.definition.string.end.coffee"
+          }
+        }
+      }
+    }
+  }
 }
