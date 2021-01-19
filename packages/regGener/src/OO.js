@@ -41,6 +41,7 @@ const Regex = (function() {
   [
     'pipe'
   , 'or'
+  , 'oneOf'
   ]
   .forEach(
     c =>

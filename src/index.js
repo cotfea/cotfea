@@ -16,6 +16,8 @@ import brace_round from './patterns/brace_round.js'
 
 import array_sign from './patterns/array_sign.js'
 
+import numbers from './patterns/numbers.js'
+
 const tmLanguageConfig = {
   name: 'CoTFea'
 , scopeName: 'source.cotfea'
@@ -43,6 +45,8 @@ const tmLanguageConfig = {
       patternsWapper(quoted_string.double)
   , single_quoted_string:
       patternsWapper(quoted_string.single)
+
+  , numbers: patternsWapper(numbers)
 
   }
 }

@@ -166,6 +166,14 @@
           }
         }
       }
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.hex.coffee",
+          "match": "\\b(?<!\\$)(0x|X)[0-9a-fA-F]\\b(?!\\$)"
+        }
+      ]
     }
   }
 }
