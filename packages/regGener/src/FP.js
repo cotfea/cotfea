@@ -43,24 +43,22 @@ const pipeOne = ({
     cache
   }
 , content
-}) => {
-  return {
-    cache: join([
-      cache
-    , typeof content !== 'string'
-      ? regString({
-          reg: content
-        })
-      : content
-    ])
-  }
-}
+}) => ({
+  cache: join([
+    cache
+  , typeof content !== 'string'
+    ? regString({
+        reg: content
+      })
+    : content
+  ])
+})
 
 const pipeAll = ({
   reg
 , content
-}) => {
-  return content.reduce(
+}) =>
+  content.reduce(
     (r, c) =>
       pipeOne({
         reg: r
@@ -68,13 +66,11 @@ const pipeAll = ({
       })
   , reg
   )
-}
 
-const pipe = (para) => {
-  return Array.isArray(para.content)
+const pipe = (para) =>
+  Array.isArray(para.content)
   ? pipeAll(para)
   : pipeOne(para)
-}
 
 const or = ({
   reg
@@ -90,35 +86,50 @@ const or = ({
       : [ '|', content ]
   })
 
-const group = ({
-  reg
-, content
-}) =>
-  pipe({
+const wrapper =
+  ({
+    pre
+  , post
+  }) =>
+  ({
     reg
-  , content: [
-      '('
-    , ...(
-      Array.isArray(content)
-      ? content
-      : [ content ]
+  , content
+  }) =>
+    pipe({
+      reg
+    , content: [
+        pre
+      , ...(
+        Array.isArray(content)
+        ? content
+        : [ content ]
+        )
+      , post
+      ]
+      .reduce(
+        (r, c) =>
+          [
+            ...r
+          , typeof c !== 'string'
+            ? regString({
+                reg: c
+              })
+            : c
+          ]
+      , []
       )
-    , ')'
-    ]
-    .reduce(
-      (r, c) =>
-        [
-          ...r
-        , typeof c !== 'string'
-          ? regString({
-              reg: c
-            })
-          : c
-        ]
-    , []
-    )
-    .join('')
-  })
+      .join('')
+    })
+
+const group = wrapper({
+  pre: '('
+, post: ')'
+})
+
+const oneOf = wrapper({
+  pre: '['
+, post: ']'
+})
 
 const groupBy = (() =>
 
@@ -158,6 +169,7 @@ const Reg = {
 , regString
 , pipe
 , or
+, oneOf
 , ...groupBy
 }
 

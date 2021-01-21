@@ -41,18 +41,23 @@ const Regex = (function() {
   [
     'pipe'
   , 'or'
+  , 'oneOf'
   ]
   .forEach(
     c =>
       Regex_.prototype[c] = function(content) {
-        
-        this.reg = (
+
+        const reg = (
           Reg[c]({
-            reg: this.reg
+            reg: Reg.createReg()
           , content: contentToStr(content)
           })
         )
-        this.reg = (this.cb(this)).reg
+
+        this.reg = Reg.pipe({
+          reg: this.reg
+        , content: contentToStr(this.cb(reg))
+        })
         this.cb = id
 
         return this
@@ -69,13 +74,11 @@ const Regex = (function() {
 
         ? (function() {
 
-            this.cb = (_content) => {
+            this.cb = _content =>
 
-              return new Regex()[c](
+              new Regex()[c](
                 _content
               )
-
-            }
 
             return this
 
