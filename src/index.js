@@ -17,6 +17,7 @@ import brace_round from './patterns/brace_round.js'
 import array_sign from './patterns/array_sign.js'
 
 import numbers from './patterns/numbers.js'
+import operators from './patterns/operators/index.js'
 
 const tmLanguageConfig = {
   name: 'CoTFea'
@@ -38,6 +39,9 @@ const tmLanguageConfig = {
 
   , array_sign
 
+  , include("#numbers")
+  , include("#operators")
+
   ])
 , repository: {
 
@@ -47,6 +51,7 @@ const tmLanguageConfig = {
       patternsWapper(quoted_string.single)
 
   , numbers: patternsWapper(numbers)
+  , operators: patternsWapper(operators)
 
   }
 }
