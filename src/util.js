@@ -1,13 +1,13 @@
-const dirname = () =>
+const dirname = (url) =>
   new URL(
     '.'
-  , import.meta.url
+  , url
   ).pathname
 
 const filename = () =>
   new URL(
     ''
-  , import.meta.url
+  , url
   ).pathname
 
 const __ = {

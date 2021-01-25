@@ -1,93 +1,29 @@
-'meta.class.coffee'
-'meta.function.coffee'
-'meta.function.inline.coffee'
-'meta.brace.curly.coffee'
-'meta.brace.round.coffee'
-'meta.arguments.coffee'
-'meta.function-call.coffee'
-'meta.parameters.coffee'
-'meta.class.instance.constructor.coffee'
-'meta.variable.assignment.destructured.array.coffee'
-'meta.variable.assignment.destructured.object.coffee'
+// cat ./syntaxes/coffee/coffee.tmLanguage.yml | grep 'name:' | sed -e 's/ //g' | sed -e 's/name://g' | sed -e 's/^-//g' | sort | uniq > ./src/scope_color/index.cotfea
 
-'keyword.other.coffee'
+import { __ } from '../util.js'
 
-'keyword.control.coffee'
-'keyword.control.inheritance.coffee'
+const confArr = Deno.readTextFileSync(
+  `${__.dirname(import.meta.url)}/index.cotfea`
+)
+.split('\n')
+.filter(
+  c => c !== ''
+)
 
-'keyword.operator.new.coffee'
-'keyword.operator.delete.coffee'
-'keyword.operator.instanceof.coffee'
-'keyword.operator.new.coffee'
-'keyword.operator.typeof.coffee'
-'keyword.operator.assignment.coffee'
-'keyword.operator.prototype.coffee'
-'keyword.operator.splat.coffee'
-'keyword.operator.slice.exclusive.coffee'
-'keyword.operator.slice.inclusive.coffee'
+const conf = confArr.reduce(
+  (r, c) => ([
+    ...r
+  , {
+      name: c
+    , match: c
+    , captures: {
+        0: {
+          name: c
+        }
+      }
+    }
+  ])
+, []
+)
 
-'keyword.reserved.coffee'
-
-'comment.block.coffee'
-'comment.line.number-sign.coffee'
-
-'entity.name.type.class.coffee'
-'entity.name.type.instance.coffee'
-'entity.name.type.object.coffee'
-'entity.name.function.coffee'
-'entity.other.inherited-class.coffee'
-
-'storage.type.class.coffee'
-'storage.type.function.coffee'
-
-'string.quoted.single.coffee'
-'string.quoted.double.coffee'
-'string.quoted.single.heredoc.coffee'
-'string.quoted.double.heredoc.coffee'
-'string.quoted.script.coffe'
-'string.regexp.multiline.coffee'
-'string.regexp.coffee'
-
-'punctuation.terminator.statement.coffee'
-'punctuation.separator.delimiter.coffee'
-'punctuation.section.embedded.coffee'
-
-'punctuation.definition.escape.backslash.coffee'
-'punctuation.definition.string.begin.coffee'
-'punctuation.definition.string.end.coffee'
-'punctuation.definition.comment.coffee'
-'punctuation.definition.array.begin.bracket.square.coffee'
-'punctuation.definition.array.end.bracket.square.coffee'
-'punctuation.definition.destructuring.begin.bracket.curly.coffee'
-'punctuation.definition.destructuring.end.bracket.curly.coffee'
-'punctuation.definition.destructuring.begin.bracket.square.coffee'
-'punctuation.definition.destructuring.end.bracket.square.coffee'
-'punctuation.definition.arguments.begin.bracket.round.coffee'
-'punctuation.definition.arguments.end.bracket.round.coffee'
-'punctuation.definition.parameters.begin.bracket.round.coffee'
-'punctuation.definition.parameters.end.bracket.round.coffee'
-
-'variable.other.readwrite.instance.coffee'
-'variable.assignment.coffee'
-'variable.language.coffee'
-'variable.language.super.coffee'
-'variable.language.this.coffee'
-'variable.language.arguments.coffee'
-'variable.parameter.function.coffee'
-'variable.parameter.function.readwrite.instance.coffee'
-
-'constant.language.coffee'
-'constant.language.boolean.true.coffee'
-'constant.language.boolean.false.coffee'
-'constant.language.null.coffee'
-
-'support.class.coffee'
-'support.function.console.coffee'
-'support.function.method.array.coffee'
-'support.function.static.array.coffee'
-'support.function.static.object.coffee'
-'support.function.static.math.coffee'
-'support.function.static.number.coffee'
-'support.variable.coffee'
-
-'invalid.illegal.identifier.coffee'
+export default conf
