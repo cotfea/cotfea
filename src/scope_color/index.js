@@ -11,7 +11,7 @@ const confArr = Deno.readTextFileSync(
 )
 
 const conf = confArr.reduce(
-  (r, c) => ([
+  (r, c) => [
     ...r
   , {
       name: c
@@ -22,7 +22,7 @@ const conf = confArr.reduce(
         }
       }
     }
-  ])
+  ]
 , []
 )
 
