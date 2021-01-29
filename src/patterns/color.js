@@ -3,6 +3,7 @@ const color = {
   // comment
   //  - comment.block.coffee
   //  - comment.line.number-sign.coffee
+  // 注释
   comment: 'comment.block.coffee'
 
   // language - constant.language.coffee
@@ -18,20 +19,56 @@ const color = {
   //    decimal - constant.numeric.decimal.coffee
   //    hex - constant.numeric.hex.coffee
   //    octal - constant.numeric.octal.coffee
+  // 常量
 , constant: 'constant.language.coffee'
 
   // control - keyword.control.coffee
   // operateor - keyword.operator.coffee
-, operator: 'keyword.operator.coffee'
+  // 操作符 控制结构
+, operator: 'keyword.control.coffee'
 
   // array
   // object
-, arguments: 'meta.arguments.coffee'
+  // function
+  // 函数调用
+, funcCall: 'meta.function-call.coffee'
 
   // bracket
   //  - punctuation.definition.parameters.begin.bracket.round.coffee
   //  - punctuation.definition.parameters.end.bracket.round.coffee
-, bracket: 'punctuation.definition.parameters.begin.bracket.round.coffee'
+  // 括号
+, bracket: 'storage.type.annotation.coffee'
+
+  // variable
+  //  - super 
+  //  - this
+  //  - arguments
+  //  - extends
+  // 内置关键字
+, inKeyword: 'variable.language.coffee'
+
+  // function
+  // console
+  // 内置对象及其函数调用
+, inObjFunc: 'support.function.console.coffee'
+
+  // support
+  //  class - support.class.coffee
+  //  variable - support.variable.coffee
+  // 内置关键字
+, class: 'support.variable.coffee'
+
+  // storage
+  //  - storage.type.annotation.coffee
+  //  - storage.type.class.coffee
+  //  - storage.type.function.coffee
+  // 类型类
+, klass: 'storage.type.function.coffee'
+
+  // invalid
+  // illegal
+  // identifier
+, error: 'invalid.illegal.identifier.coffee'
 
   // string
   //  - punctuation.definition.string.begin.coffee
@@ -43,31 +80,17 @@ const color = {
   //  - string.quoted.double.heredoc.coffee
 , string: 'string.quoted.script.coffee'
 
-  // variable
-  //  - super 
-  //  - this
-  //  - arguments
-, variable: 'variable.language.coffee'
+  // constant.numeric.binary.coffee
+  // constant.numeric.decimal.coffee
+  // constant.numeric.hex.coffee
+  // constant.numeric.octal.coffee
+, numeric: 'constant.numeric.decimal.coffee'
 
-  // function
-  // console
-, function: 'support.function.coffee'
+  // constant.language.boolean.false.coffee
+  // constant.language.boolean.true.coffee
+, boolean: 'constant.language.boolean.true.coffee'
 
-  // support
-  //  class - support.class.coffee
-  //  variable - support.variable.coffee
-, support: 'support.class.coffee'
-
-  // storage
-  //  - storage.type.annotation.coffee
-  //  - storage.type.class.coffee
-  //  - storage.type.function.coffee
-, storage: 'storage.type.function.coffee'
-
-  // invalid
-  // illegal
-  // identifier
-, error: 'invalid.illegal.identifier.coffee'
+, null: 'constant.language.null.coffee'
 }
 
 export default color
