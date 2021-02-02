@@ -19,7 +19,7 @@ import array_sign from './patterns/array_sign.js'
 import numbers from './patterns/numbers.js'
 import operators from './patterns/operators/index.js'
 
-import scope_color from './scope_color/index.js'
+// import scope_color from './scope_color/index.js'
 
 const tmLanguageConfig = {
   name: 'CoTFea'
@@ -58,17 +58,17 @@ const tmLanguageConfig = {
   }
 }
 
-const tmLanguageConfigA = {
-  name: 'CoTFea'
-, scopeName: 'source.cotfea'
-, ...patternsWapper(scope_color)
-}
+// const tmLanguageConfigA = {
+//   name: 'CoTFea'
+// , scopeName: 'source.cotfea'
+// , ...patternsWapper(scope_color)
+// }
 
 Deno.writeTextFileSync(
   `${__.dirname(import.meta.url)}/tmLanguage.json`
 , [
     JSON.stringify(
-      tmLanguageConfigA
+      tmLanguageConfig
     , null, 2
     )
   , '\n'
