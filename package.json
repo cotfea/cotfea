@@ -12,6 +12,10 @@
   "scripts": {
     "syntaxes": "js-yaml ./syntaxes/cotfea.tmLanguage.yml > ./syntaxes/cotfea.tmLanguage.json"
   },
+  "main": "./src/extension.js",
+  "activationEvents": [
+		"onLanguage:semanticLanguage"
+	],
   "contributes": {
     "languages": [
       {
@@ -19,7 +23,13 @@
         "extensions": [
           ".cotfea"
         ]
-      }
+      },
+      {
+				"id": "semanticLanguage",
+				"extensions": [
+					".semanticLanguage"
+				]
+			}
     ],
     "grammars": [
       {
@@ -27,21 +37,7 @@
         "scopeName": "source.cotfea",
         "path": "./syntaxes/cotfea.tmLanguage.json"
       }
-    ],
-    "configurationDefaults": {
-      "[cotfea]": {
-        "editor.tokenColorCustomizations": {
-          "textMateRules": [
-            {
-              "scope": "punctuation.definition.array.begin.bracket.square.cotfea",
-              "settings": {
-                "foreground": "#FFC600"
-              }
-            }
-          ]
-        }
-      }
-    }
+    ]
   },
   "devDependencies": {
     "js-yaml": "^3.14.1"
