@@ -1,15 +1,7 @@
 import * as vscode from 'vscode'
 
-const arrToMapValueIndex = arr =>
-  arr.reduce(
-    (p, c, i) => (
-      {
-        ...p
-      , [c]: i
-      }
-    )
-  , {}
-  )
+import { arrToMapValueIndex } from './util.js'
+import parseText from './parseText.js'
 
 const tokenTypesLegend = [
   'comment', 'string', 'keyword', 'number', 'regexp', 'operator', 'namespace'
@@ -34,8 +26,11 @@ const legend =
   )
 
 const activate = context =>
-  context.subscriptions.push(
-    vscode.languages
+  context
+  .subscriptions
+  .push(
+    vscode
+    .languages
     .registerDocumentSemanticTokensProvider(
       { language: 'semanticLanguage' }
     , new DocumentSemanticTokensProvider()
@@ -56,6 +51,7 @@ class DocumentSemanticTokensProvider {
 
   // private: string -> number
   _encodeTokenType = tokenType =>
+
     tokenTypesLegend.includes(tokenType)
     ? tokenTypes[tokenType] //!
     : tokenType === 'notInLegend'
@@ -63,7 +59,7 @@ class DocumentSemanticTokensProvider {
     : 0
 
   // private: string[] -> number
-  _encodeTokenModifiers(strTokenModifiers) {
+  _encodeTokenModifiers = strTokenModifiers =>
 
     strTokenModifiers.reduce(
       (result, tokenModifier) =>
@@ -74,39 +70,6 @@ class DocumentSemanticTokensProvider {
         : result
     , 0
     )
-  }
-
-  // private: string -> IParsedToken[]
-  _parseText(text) {
-
-    // IParsedToken[]
-    const r = []
-    const lines = text.split(/\r\n|\r|\n/)
-    for (let i = 0; i < lines.length; i++) {
-      const line = lines[i]
-      let currentOffset = 0
-      do {
-        const openOffset = line.indexOf('[', currentOffset);
-        if (openOffset === -1) {
-          break;
-        }
-        const closeOffset = line.indexOf(']', openOffset);
-        if (closeOffset === -1) {
-          break;
-        }
-        const tokenData = this._parseTextToken(line.substring(openOffset + 1, closeOffset));
-        r.push({
-          line: i,
-          startCharacter: openOffset + 1,
-          length: closeOffset - openOffset - 1,
-          tokenType: tokenData.tokenType,
-          tokenModifiers: tokenData.tokenModifiers
-        });
-        currentOffset = closeOffset;
-      } while (true)
-    }
-    return r
-  }
 
   // private: string -> {
   //		tokenType: string
@@ -119,6 +82,14 @@ class DocumentSemanticTokensProvider {
     , tokenModifiers: parts.slice(1)
     }
   }
+
+  // private: string -> IParsedToken[]
+  _parseText = text =>
+
+    parseText({
+      text
+    , parseTextToken: this._parseTextToken
+    })
 
   // vscode.TextDocument -> vscode.CancellationToken -> Promise<vscode.SemanticTokens>
   async provideDocumentSemanticTokens(document, token) {
