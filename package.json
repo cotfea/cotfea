@@ -14,8 +14,8 @@
   },
   "main": "./src/extension.js",
   "activationEvents": [
-		"onLanguage:semanticLanguage"
-	],
+    "onLanguage:semanticLanguage"
+  ],
   "contributes": {
     "languages": [
       {
@@ -25,11 +25,11 @@
         ]
       },
       {
-				"id": "semanticLanguage",
-				"extensions": [
-					".semanticLanguage"
-				]
-			}
+        "id": "semanticLanguage",
+        "extensions": [
+          ".semanticLanguage"
+        ]
+      }
     ],
     "grammars": [
       {
@@ -40,6 +40,8 @@
     ]
   },
   "devDependencies": {
+    "@swc/cli": "^0.1.34",
+    "@swc/core": "^1.2.47",
     "js-yaml": "^3.14.1"
   }
 }

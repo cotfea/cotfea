@@ -108,4 +108,3 @@ const activate = (context)=>context.subscriptions.push(vscode.languages.register
 ;
 exports.activate = activate;
 
-

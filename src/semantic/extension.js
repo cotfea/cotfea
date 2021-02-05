@@ -1,4 +1,5 @@
-import * as vscode from 'vscode'
+// import * as vscode from 'vscode'
+const vscode = require("vscode");
 
 import { arrToMapValueIndex } from './util.js'
 import parseText from './parseText.js'
@@ -23,19 +24,6 @@ const legend =
   new vscode.SemanticTokensLegend(
     tokenTypesLegend
   , tokenModifiersLegend
-  )
-
-const activate = context =>
-  context
-  .subscriptions
-  .push(
-    vscode
-    .languages
-    .registerDocumentSemanticTokensProvider(
-      { language: 'semanticLanguage' }
-    , new DocumentSemanticTokensProvider()
-    , legend
-    )
   )
 
 // interface IParsedToken {
@@ -84,12 +72,12 @@ class DocumentSemanticTokensProvider {
   }
 
   // private: string -> IParsedToken[]
-  _parseText = text =>
-
-    parseText({
+  _parseText(text) {
+    return parseText({
       text
     , parseTextToken: this._parseTextToken
     })
+  }
 
   // vscode.TextDocument -> vscode.CancellationToken -> Promise<vscode.SemanticTokens>
   async provideDocumentSemanticTokens(document, token) {
@@ -113,6 +101,20 @@ class DocumentSemanticTokensProvider {
 
 }
 
-export {
-  activate
-}
+const activate = context =>
+  context
+  .subscriptions
+  .push(
+    vscode
+    .languages
+    .registerDocumentSemanticTokensProvider(
+      { language: 'semanticLanguage' }
+    , new DocumentSemanticTokensProvider()
+    , legend
+    )
+  )
+
+// export {
+//   activate
+// }
+exports.activate = activate
