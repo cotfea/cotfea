@@ -130,6 +130,12 @@
         }
       },
       "end": "\\s"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#operators"
     }
   ],
   "repository": {
@@ -204,6 +210,21 @@
             },
             "6": {
               "name": "punctuation.separator.decimal.period.coffee"
+            }
+          }
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "match": "(?:([a-zA-Z$_][\\w$]*)?\\s+|(?<![\\w$]))(and=|or=)",
+          "captures": {
+            "1": {
+              "name": "variable.assignment.coffee"
+            },
+            "2": {
+              "name": "keyword.operator.assignment.compound.coffee"
             }
           }
         }

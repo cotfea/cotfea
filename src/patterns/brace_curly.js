@@ -1,6 +1,6 @@
 import { patternsPeer } from './util.js'
 
-const parttern = patternsPeer(
+const pattern = patternsPeer(
   {
     sign: {
       begin: '{'
@@ -10,4 +10,4 @@ const parttern = patternsPeer(
   }
 )
 
-export default parttern
+export default pattern

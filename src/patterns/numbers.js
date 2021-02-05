@@ -52,7 +52,7 @@ const wrapperBn = content =>
   , mulNum
   ])
 
-const parttern = [
+const pattern = [
   {
     name: 'constant.numeric.hex.coffee'
   , match: wrapper(
@@ -212,4 +212,4 @@ const parttern = [
   }
 ]
 
-export default parttern
+export default pattern

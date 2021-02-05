@@ -17,6 +17,9 @@ import brace_round from './patterns/brace_round.js'
 import array_sign from './patterns/array_sign.js'
 
 import numbers from './patterns/numbers.js'
+import operators from './patterns/operators/index.js'
+
+// import scope_color from './scope_color/index.js'
 
 const tmLanguageConfig = {
   name: 'CoTFea'
@@ -38,6 +41,9 @@ const tmLanguageConfig = {
 
   , array_sign
 
+  , include("#numbers")
+  , include("#operators")
+
   ])
 , repository: {
 
@@ -47,12 +53,19 @@ const tmLanguageConfig = {
       patternsWapper(quoted_string.single)
 
   , numbers: patternsWapper(numbers)
+  , operators: patternsWapper(operators)
 
   }
 }
 
+// const tmLanguageConfigA = {
+//   name: 'CoTFea'
+// , scopeName: 'source.cotfea'
+// , ...patternsWapper(scope_color)
+// }
+
 Deno.writeTextFileSync(
-  `${__.dirname()}/tmLanguage.json`
+  `${__.dirname(import.meta.url)}/tmLanguage.json`
 , [
     JSON.stringify(
       tmLanguageConfig

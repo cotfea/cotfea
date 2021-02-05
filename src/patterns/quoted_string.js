@@ -3,7 +3,7 @@ import { patternsPeer } from './util.js'
 const colorName = (be) =>
   `punctuation.definition.string.${be}.coffee`
 
-const partternGener = ({
+const patternGener = ({
   type = ''
 , sign = ''
 }) =>
@@ -16,16 +16,16 @@ const partternGener = ({
     }
   })
 
-const parttern =
+const pattern =
   {
-    single: partternGener({
+    single: patternGener({
       type: 'single'
     , sign: "'"
     })
-  , double: partternGener({
+  , double: patternGener({
       type: 'double'
     , sign: '"'
     })
   }
 
-export default parttern
+export default pattern
