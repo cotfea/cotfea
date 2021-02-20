@@ -10,43 +10,55 @@ const color = {
   // comment.line.number-sign.coffee
   comment: 'comment.block.coffee'
 
-, bracket: 'storage.type.annotation.coffee'
+  // constant.character.escape.backslash.coffee
+  // constant.character.escape.backslash.regexp
+, bracket: 'constant.character.escape.backslash.coffee'
 
-  // constant.language.boolean.false.coffee
   // constant.language.boolean.true.coffee
+  // constant.language.boolean.false.coffee
 , boolean: 'constant.language.boolean.true.coffee'
 , null: 'constant.language.null.coffee'
 
 , string: 'string.quoted.script.coffee'
 , number: 'constant.numeric.decimal.coffee'
-, regexp: ''
+  // string.regexp.coffee
+  // string.regexp.multiline.coffee
+, regexp: 'string.regexp.coffee'
 
-, variable: ''
+  // variable.language.coffee
+  // variable.language.super.coffee
+  // variable.language.this.coffee
+  // variable.language.arguments.coffee
+, variable: 'variable.language.coffee'
 , constant: 'constant.language.coffee'
-, operator: 'keyword.control.coffee'
-, keyword: ''
+, operator: 'keyword.operator.new.coffee'
+, keyword: 'keyword.control.coffee'
 
-, namespace: ''
-, label: ''
+, namespace: 'support.variable.coffee'
+, label: 'support.variable.coffee'
 
-, enum: ''
-, type: ''
-, typeParameter: ''
+, enum: 'storage.type.class.coffee'
+, type: 'storage.type.class.coffee'
+, typeParameter: 'storage.type.annotation.coffee'
 
-, struct: ''
+, struct: 'storage.type.class.coffee'
 , class: 'support.variable.coffee'
-// , klass: 'storage.type.function.coffee'
-, interface: ''
+, klass: 'storage.type.function.coffee'
+, interface: 'storage.type.class.coffee'
 
-, function: ''
-, method: ''
-, macro: ''
-, parameter: ''
-, property: ''
+, function: 'storage.type.function.coffee'
+, method: 'storage.type.function.coffee'
+, macro: 'storage.type.function.coffee'
+, parameter: 'variable.parameter.function.coffee'
+
+  // variable.other.property.coffee
+  // constant.other.property.coffee
+, property: 'variable.other.property.coffee'
+
 , funcCall: 'meta.function-call.coffee'
 
-, inKeyword: 'variable.language.coffee'
-, inObjFunc: 'support.function.console.coffee'
+, buildinKeyword: 'variable.language.coffee'
+, buildinObjFunc: 'support.function.console.coffee'
 
 , error: 'invalid.illegal.identifier.coffee'
 }
