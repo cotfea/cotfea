@@ -12,7 +12,7 @@
   "scripts": {
     "syntaxes": "js-yaml ./syntaxes/cotfea.tmLanguage.yml > ./syntaxes/cotfea.tmLanguage.json"
   },
-  "main": "./src/extension.js",
+  "main": "./DefaultColor/Semantic/dist/extension.dist.js",
   "activationEvents": [
     "onLanguage:semanticLanguage"
   ],
@@ -35,7 +35,7 @@
       {
         "language": "cotfea",
         "scopeName": "source.cotfea",
-        "path": "./syntaxes/cotfea.tmLanguage.json"
+        "path": "./DefaultColor/RegexColor/cotfea.tmLanguage.json"
       }
     ]
   },
