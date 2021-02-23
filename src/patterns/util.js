@@ -13,13 +13,17 @@ const patternsPeer = args => {
   , color = {}
   } = args
 
-  const name = Object.keys(args).includes('name')
-  ? { name: args.name }
-  : {}
+  const name =
+    Object.keys(args)
+    .includes('name')
+    ? { name: args.name }
+    : {}
 
-  const options = Object.keys(args).includes('options')
-  ? args.options
-  : {}
+  const options =
+    Object.keys(args)
+    .includes('options')
+    ? args.options
+    : {}
 
   const checkBE = args => {
     const keys = Object.keys(args)

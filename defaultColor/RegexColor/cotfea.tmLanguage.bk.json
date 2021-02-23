@@ -1,0 +1,1176 @@
+{
+  "name": "CoTFea",
+  "scopeName": "source.cotfea",
+  "patterns": [
+    {
+      "name": "comment.block.coffee",
+      "match": "comment.block.coffee",
+      "captures": {
+        "0": {
+          "name": "comment.block.coffee"
+        }
+      }
+    },
+    {
+      "name": "comment.line.number-sign.coffee",
+      "match": "comment.line.number-sign.coffee",
+      "captures": {
+        "0": {
+          "name": "comment.line.number-sign.coffee"
+        }
+      }
+    },
+    {
+      "name": "constant.character.character-class.regexp",
+      "match": "constant.character.character-class.regexp",
+      "captures": {
+        "0": {
+          "name": "constant.character.character-class.regexp"
+        }
+      }
+    },
+    {
+      "name": "constant.character.control.regexp",
+      "match": "constant.character.control.regexp",
+      "captures": {
+        "0": {
+          "name": "constant.character.control.regexp"
+        }
+      }
+    },
+    {
+      "name": "constant.character.escape.backslash.coffee",
+      "match": "constant.character.escape.backslash.coffee",
+      "captures": {
+        "0": {
+          "name": "constant.character.escape.backslash.coffee"
+        }
+      }
+    },
+    {
+      "name": "constant.character.escape.backslash.regexp",
+      "match": "constant.character.escape.backslash.regexp",
+      "captures": {
+        "0": {
+          "name": "constant.character.escape.backslash.regexp"
+        }
+      }
+    },
+    {
+      "name": "constant.character.numeric.regexp",
+      "match": "constant.character.numeric.regexp",
+      "captures": {
+        "0": {
+          "name": "constant.character.numeric.regexp"
+        }
+      }
+    },
+    {
+      "name": "constant.language.boolean.false.coffee",
+      "match": "constant.language.boolean.false.coffee",
+      "captures": {
+        "0": {
+          "name": "constant.language.boolean.false.coffee"
+        }
+      }
+    },
+    {
+      "name": "constant.language.boolean.true.coffee",
+      "match": "constant.language.boolean.true.coffee",
+      "captures": {
+        "0": {
+          "name": "constant.language.boolean.true.coffee"
+        }
+      }
+    },
+    {
+      "name": "constant.language.coffee",
+      "match": "constant.language.coffee",
+      "captures": {
+        "0": {
+          "name": "constant.language.coffee"
+        }
+      }
+    },
+    {
+      "name": "constant.language.null.coffee",
+      "match": "constant.language.null.coffee",
+      "captures": {
+        "0": {
+          "name": "constant.language.null.coffee"
+        }
+      }
+    },
+    {
+      "name": "constant.numeric.binary.coffee",
+      "match": "constant.numeric.binary.coffee",
+      "captures": {
+        "0": {
+          "name": "constant.numeric.binary.coffee"
+        }
+      }
+    },
+    {
+      "name": "constant.numeric.decimal.coffee",
+      "match": "constant.numeric.decimal.coffee",
+      "captures": {
+        "0": {
+          "name": "constant.numeric.decimal.coffee"
+        }
+      }
+    },
+    {
+      "name": "constant.numeric.hex.coffee",
+      "match": "constant.numeric.hex.coffee",
+      "captures": {
+        "0": {
+          "name": "constant.numeric.hex.coffee"
+        }
+      }
+    },
+    {
+      "name": "constant.numeric.octal.coffee",
+      "match": "constant.numeric.octal.coffee",
+      "captures": {
+        "0": {
+          "name": "constant.numeric.octal.coffee"
+        }
+      }
+    },
+    {
+      "name": "constant.other.character-class.range.regexp",
+      "match": "constant.other.character-class.range.regexp",
+      "captures": {
+        "0": {
+          "name": "constant.other.character-class.range.regexp"
+        }
+      }
+    },
+    {
+      "name": "constant.other.character-class.set.regexp",
+      "match": "constant.other.character-class.set.regexp",
+      "captures": {
+        "0": {
+          "name": "constant.other.character-class.set.regexp"
+        }
+      }
+    },
+    {
+      "name": "constant.other.object.coffee",
+      "match": "constant.other.object.coffee",
+      "captures": {
+        "0": {
+          "name": "constant.other.object.coffee"
+        }
+      }
+    },
+    {
+      "name": "constant.other.object.property.coffee",
+      "match": "constant.other.object.property.coffee",
+      "captures": {
+        "0": {
+          "name": "constant.other.object.property.coffee"
+        }
+      }
+    },
+    {
+      "name": "constant.other.property.coffee",
+      "match": "constant.other.property.coffee",
+      "captures": {
+        "0": {
+          "name": "constant.other.property.coffee"
+        }
+      }
+    },
+    {
+      "name": "entity.name.function.coffee",
+      "match": "entity.name.function.coffee",
+      "captures": {
+        "0": {
+          "name": "entity.name.function.coffee"
+        }
+      }
+    },
+    {
+      "name": "entity.name.tag.coffee",
+      "match": "entity.name.tag.coffee",
+      "captures": {
+        "0": {
+          "name": "entity.name.tag.coffee"
+        }
+      }
+    },
+    {
+      "name": "entity.name.type.class.coffee",
+      "match": "entity.name.type.class.coffee",
+      "captures": {
+        "0": {
+          "name": "entity.name.type.class.coffee"
+        }
+      }
+    },
+    {
+      "name": "entity.name.type.instance.coffee",
+      "match": "entity.name.type.instance.coffee",
+      "captures": {
+        "0": {
+          "name": "entity.name.type.instance.coffee"
+        }
+      }
+    },
+    {
+      "name": "entity.name.type.object.coffee",
+      "match": "entity.name.type.object.coffee",
+      "captures": {
+        "0": {
+          "name": "entity.name.type.object.coffee"
+        }
+      }
+    },
+    {
+      "name": "entity.other.attribute-name.coffee",
+      "match": "entity.other.attribute-name.coffee",
+      "captures": {
+        "0": {
+          "name": "entity.other.attribute-name.coffee"
+        }
+      }
+    },
+    {
+      "name": "entity.other.inherited-class.coffee",
+      "match": "entity.other.inherited-class.coffee",
+      "captures": {
+        "0": {
+          "name": "entity.other.inherited-class.coffee"
+        }
+      }
+    },
+    {
+      "name": "invalid.illegal.identifier.coffee",
+      "match": "invalid.illegal.identifier.coffee",
+      "captures": {
+        "0": {
+          "name": "invalid.illegal.identifier.coffee"
+        }
+      }
+    },
+    {
+      "name": "keyword.control.anchor.regexp",
+      "match": "keyword.control.anchor.regexp",
+      "captures": {
+        "0": {
+          "name": "keyword.control.anchor.regexp"
+        }
+      }
+    },
+    {
+      "name": "keyword.control.coffee",
+      "match": "keyword.control.coffee",
+      "captures": {
+        "0": {
+          "name": "keyword.control.coffee"
+        }
+      }
+    },
+    {
+      "name": "keyword.control.inheritance.coffee",
+      "match": "keyword.control.inheritance.coffee",
+      "captures": {
+        "0": {
+          "name": "keyword.control.inheritance.coffee"
+        }
+      }
+    },
+    {
+      "name": "keyword.operator.delete.coffee",
+      "match": "keyword.operator.delete.coffee",
+      "captures": {
+        "0": {
+          "name": "keyword.operator.delete.coffee"
+        }
+      }
+    },
+    {
+      "name": "keyword.operator.instanceof.coffee",
+      "match": "keyword.operator.instanceof.coffee",
+      "captures": {
+        "0": {
+          "name": "keyword.operator.instanceof.coffee"
+        }
+      }
+    },
+    {
+      "name": "keyword.operator.typeof.coffee",
+      "match": "keyword.operator.typeof.coffee",
+      "captures": {
+        "0": {
+          "name": "keyword.operator.typeof.coffee"
+        }
+      }
+    },
+    {
+      "name": "keyword.operator.assignment.coffee",
+      "match": "keyword.operator.assignment.coffee",
+      "captures": {
+        "0": {
+          "name": "keyword.operator.assignment.coffee"
+        }
+      }
+    },
+    {
+      "name": "keyword.operator.assignment.compound.bitwise.coffee",
+      "match": "keyword.operator.assignment.compound.bitwise.coffee",
+      "captures": {
+        "0": {
+          "name": "keyword.operator.assignment.compound.bitwise.coffee"
+        }
+      }
+    },
+    {
+      "name": "keyword.operator.assignment.compound.coffee",
+      "match": "keyword.operator.assignment.compound.coffee",
+      "captures": {
+        "0": {
+          "name": "keyword.operator.assignment.compound.coffee"
+        }
+      }
+    },
+    {
+      "name": "keyword.operator.bitwise.coffee",
+      "match": "keyword.operator.bitwise.coffee",
+      "captures": {
+        "0": {
+          "name": "keyword.operator.bitwise.coffee"
+        }
+      }
+    },
+    {
+      "name": "keyword.operator.bitwise.shift.coffee",
+      "match": "keyword.operator.bitwise.shift.coffee",
+      "captures": {
+        "0": {
+          "name": "keyword.operator.bitwise.shift.coffee"
+        }
+      }
+    },
+    {
+      "name": "keyword.operator.coffee",
+      "match": "keyword.operator.coffee",
+      "captures": {
+        "0": {
+          "name": "keyword.operator.coffee"
+        }
+      }
+    },
+    {
+      "name": "keyword.operator.comparison.coffee",
+      "match": "keyword.operator.comparison.coffee",
+      "captures": {
+        "0": {
+          "name": "keyword.operator.comparison.coffee"
+        }
+      }
+    },
+    {
+      "name": "keyword.operator.decrement.coffee",
+      "match": "keyword.operator.decrement.coffee",
+      "captures": {
+        "0": {
+          "name": "keyword.operator.decrement.coffee"
+        }
+      }
+    },
+    {
+      "name": "keyword.operator.existential.coffee",
+      "match": "keyword.operator.existential.coffee",
+      "captures": {
+        "0": {
+          "name": "keyword.operator.existential.coffee"
+        }
+      }
+    },
+    {
+      "name": "keyword.operator.increment.coffee",
+      "match": "keyword.operator.increment.coffee",
+      "captures": {
+        "0": {
+          "name": "keyword.operator.increment.coffee"
+        }
+      }
+    },
+    {
+      "name": "keyword.operator.logical.coffee",
+      "match": "keyword.operator.logical.coffee",
+      "captures": {
+        "0": {
+          "name": "keyword.operator.logical.coffee"
+        }
+      }
+    },
+    {
+      "name": "keyword.operator.negation.regexp",
+      "match": "keyword.operator.negation.regexp",
+      "captures": {
+        "0": {
+          "name": "keyword.operator.negation.regexp"
+        }
+      }
+    },
+    {
+      "name": "keyword.operator.new.coffee",
+      "match": "keyword.operator.new.coffee",
+      "captures": {
+        "0": {
+          "name": "keyword.operator.new.coffee"
+        }
+      }
+    },
+    {
+      "name": "keyword.operator.or.regexp",
+      "match": "keyword.operator.or.regexp",
+      "captures": {
+        "0": {
+          "name": "keyword.operator.or.regexp"
+        }
+      }
+    },
+    {
+      "name": "keyword.operator.prototype.coffee",
+      "match": "keyword.operator.prototype.coffee",
+      "captures": {
+        "0": {
+          "name": "keyword.operator.prototype.coffee"
+        }
+      }
+    },
+    {
+      "name": "keyword.operator.quantifier.regexp",
+      "match": "keyword.operator.quantifier.regexp",
+      "captures": {
+        "0": {
+          "name": "keyword.operator.quantifier.regexp"
+        }
+      }
+    },
+    {
+      "name": "keyword.operator.slice.exclusive.coffee",
+      "match": "keyword.operator.slice.exclusive.coffee",
+      "captures": {
+        "0": {
+          "name": "keyword.operator.slice.exclusive.coffee"
+        }
+      }
+    },
+    {
+      "name": "keyword.operator.slice.inclusive.coffee",
+      "match": "keyword.operator.slice.inclusive.coffee",
+      "captures": {
+        "0": {
+          "name": "keyword.operator.slice.inclusive.coffee"
+        }
+      }
+    },
+    {
+      "name": "keyword.operator.splat.coffee",
+      "match": "keyword.operator.splat.coffee",
+      "captures": {
+        "0": {
+          "name": "keyword.operator.splat.coffee"
+        }
+      }
+    },
+    {
+      "name": "keyword.other.back-reference.regexp",
+      "match": "keyword.other.back-reference.regexp",
+      "captures": {
+        "0": {
+          "name": "keyword.other.back-reference.regexp"
+        }
+      }
+    },
+    {
+      "name": "keyword.other.coffee",
+      "match": "keyword.other.coffee",
+      "captures": {
+        "0": {
+          "name": "keyword.other.coffee"
+        }
+      }
+    },
+    {
+      "name": "keyword.reserved.coffee",
+      "match": "keyword.reserved.coffee",
+      "captures": {
+        "0": {
+          "name": "keyword.reserved.coffee"
+        }
+      }
+    },
+    {
+      "name": "meta.arguments.coffee",
+      "match": "meta.arguments.coffee",
+      "captures": {
+        "0": {
+          "name": "meta.arguments.coffee"
+        }
+      }
+    },
+    {
+      "name": "meta.assertion.look-ahead.regexp",
+      "match": "meta.assertion.look-ahead.regexp",
+      "captures": {
+        "0": {
+          "name": "meta.assertion.look-ahead.regexp"
+        }
+      }
+    },
+    {
+      "name": "meta.assertion.negative-look-ahead.regexp",
+      "match": "meta.assertion.negative-look-ahead.regexp",
+      "captures": {
+        "0": {
+          "name": "meta.assertion.negative-look-ahead.regexp"
+        }
+      }
+    },
+    {
+      "name": "meta.brace.curly.coffee",
+      "match": "meta.brace.curly.coffee",
+      "captures": {
+        "0": {
+          "name": "meta.brace.curly.coffee"
+        }
+      }
+    },
+    {
+      "name": "meta.brace.round.coffee",
+      "match": "meta.brace.round.coffee",
+      "captures": {
+        "0": {
+          "name": "meta.brace.round.coffee"
+        }
+      }
+    },
+    {
+      "name": "meta.class.coffee",
+      "match": "meta.class.coffee",
+      "captures": {
+        "0": {
+          "name": "meta.class.coffee"
+        }
+      }
+    },
+    {
+      "name": "meta.class.instance.constructor.coffee",
+      "match": "meta.class.instance.constructor.coffee",
+      "captures": {
+        "0": {
+          "name": "meta.class.instance.constructor.coffee"
+        }
+      }
+    },
+    {
+      "name": "meta.function-call.coffee",
+      "match": "meta.function-call.coffee",
+      "captures": {
+        "0": {
+          "name": "meta.function-call.coffee"
+        }
+      }
+    },
+    {
+      "name": "meta.function.coffee",
+      "match": "meta.function.coffee",
+      "captures": {
+        "0": {
+          "name": "meta.function.coffee"
+        }
+      }
+    },
+    {
+      "name": "meta.function.inline.coffee",
+      "match": "meta.function.inline.coffee",
+      "captures": {
+        "0": {
+          "name": "meta.function.inline.coffee"
+        }
+      }
+    },
+    {
+      "name": "meta.group.assertion.regexp",
+      "match": "meta.group.assertion.regexp",
+      "captures": {
+        "0": {
+          "name": "meta.group.assertion.regexp"
+        }
+      }
+    },
+    {
+      "name": "meta.group.regexp",
+      "match": "meta.group.regexp",
+      "captures": {
+        "0": {
+          "name": "meta.group.regexp"
+        }
+      }
+    },
+    {
+      "name": "meta.method-call.coffee",
+      "match": "meta.method-call.coffee",
+      "captures": {
+        "0": {
+          "name": "meta.method-call.coffee"
+        }
+      }
+    },
+    {
+      "name": "meta.parameters.coffee",
+      "match": "meta.parameters.coffee",
+      "captures": {
+        "0": {
+          "name": "meta.parameters.coffee"
+        }
+      }
+    },
+    {
+      "name": "meta.tag.coffee",
+      "match": "meta.tag.coffee",
+      "captures": {
+        "0": {
+          "name": "meta.tag.coffee"
+        }
+      }
+    },
+    {
+      "name": "meta.variable.assignment.destructured.array.coffee",
+      "match": "meta.variable.assignment.destructured.array.coffee",
+      "captures": {
+        "0": {
+          "name": "meta.variable.assignment.destructured.array.coffee"
+        }
+      }
+    },
+    {
+      "name": "meta.variable.assignment.destructured.object.coffee",
+      "match": "meta.variable.assignment.destructured.object.coffee",
+      "captures": {
+        "0": {
+          "name": "meta.variable.assignment.destructured.object.coffee"
+        }
+      }
+    },
+    {
+      "name": "punctuation.definition.arguments.begin.bracket.round.coffee",
+      "match": "punctuation.definition.arguments.begin.bracket.round.coffee",
+      "captures": {
+        "0": {
+          "name": "punctuation.definition.arguments.begin.bracket.round.coffee"
+        }
+      }
+    },
+    {
+      "name": "punctuation.definition.arguments.end.bracket.round.coffee",
+      "match": "punctuation.definition.arguments.end.bracket.round.coffee",
+      "captures": {
+        "0": {
+          "name": "punctuation.definition.arguments.end.bracket.round.coffee"
+        }
+      }
+    },
+    {
+      "name": "punctuation.definition.array.begin.bracket.square.coffee",
+      "match": "punctuation.definition.array.begin.bracket.square.coffee",
+      "captures": {
+        "0": {
+          "name": "punctuation.definition.array.begin.bracket.square.coffee"
+        }
+      }
+    },
+    {
+      "name": "punctuation.definition.array.end.bracket.square.coffee",
+      "match": "punctuation.definition.array.end.bracket.square.coffee",
+      "captures": {
+        "0": {
+          "name": "punctuation.definition.array.end.bracket.square.coffee"
+        }
+      }
+    },
+    {
+      "name": "punctuation.definition.character-class.regexp",
+      "match": "punctuation.definition.character-class.regexp",
+      "captures": {
+        "0": {
+          "name": "punctuation.definition.character-class.regexp"
+        }
+      }
+    },
+    {
+      "name": "punctuation.definition.comment.coffee",
+      "match": "punctuation.definition.comment.coffee",
+      "captures": {
+        "0": {
+          "name": "punctuation.definition.comment.coffee"
+        }
+      }
+    },
+    {
+      "name": "punctuation.definition.destructuring.begin.bracket.curly.coffee",
+      "match": "punctuation.definition.destructuring.begin.bracket.curly.coffee",
+      "captures": {
+        "0": {
+          "name": "punctuation.definition.destructuring.begin.bracket.curly.coffee"
+        }
+      }
+    },
+    {
+      "name": "punctuation.definition.destructuring.begin.bracket.square.coffee",
+      "match": "punctuation.definition.destructuring.begin.bracket.square.coffee",
+      "captures": {
+        "0": {
+          "name": "punctuation.definition.destructuring.begin.bracket.square.coffee"
+        }
+      }
+    },
+    {
+      "name": "punctuation.definition.destructuring.end.bracket.curly.coffee",
+      "match": "punctuation.definition.destructuring.end.bracket.curly.coffee",
+      "captures": {
+        "0": {
+          "name": "punctuation.definition.destructuring.end.bracket.curly.coffee"
+        }
+      }
+    },
+    {
+      "name": "punctuation.definition.destructuring.end.bracket.square.coffee",
+      "match": "punctuation.definition.destructuring.end.bracket.square.coffee",
+      "captures": {
+        "0": {
+          "name": "punctuation.definition.destructuring.end.bracket.square.coffee"
+        }
+      }
+    },
+    {
+      "name": "punctuation.definition.escape.backslash.coffee",
+      "match": "punctuation.definition.escape.backslash.coffee",
+      "captures": {
+        "0": {
+          "name": "punctuation.definition.escape.backslash.coffee"
+        }
+      }
+    },
+    {
+      "name": "punctuation.definition.group.regexp",
+      "match": "punctuation.definition.group.regexp",
+      "captures": {
+        "0": {
+          "name": "punctuation.definition.group.regexp"
+        }
+      }
+    },
+    {
+      "name": "punctuation.definition.parameters.begin.bracket.round.coffee",
+      "match": "punctuation.definition.parameters.begin.bracket.round.coffee",
+      "captures": {
+        "0": {
+          "name": "punctuation.definition.parameters.begin.bracket.round.coffee"
+        }
+      }
+    },
+    {
+      "name": "punctuation.definition.parameters.end.bracket.round.coffee",
+      "match": "punctuation.definition.parameters.end.bracket.round.coffee",
+      "captures": {
+        "0": {
+          "name": "punctuation.definition.parameters.end.bracket.round.coffee"
+        }
+      }
+    },
+    {
+      "name": "punctuation.definition.string.begin.coffee",
+      "match": "punctuation.definition.string.begin.coffee",
+      "captures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.coffee"
+        }
+      }
+    },
+    {
+      "name": "punctuation.definition.string.end.coffee",
+      "match": "punctuation.definition.string.end.coffee",
+      "captures": {
+        "0": {
+          "name": "punctuation.definition.string.end.coffee"
+        }
+      }
+    },
+    {
+      "name": "punctuation.definition.tag.coffee",
+      "match": "punctuation.definition.tag.coffee",
+      "captures": {
+        "0": {
+          "name": "punctuation.definition.tag.coffee"
+        }
+      }
+    },
+    {
+      "name": "punctuation.section.embedded.coffee",
+      "match": "punctuation.section.embedded.coffee",
+      "captures": {
+        "0": {
+          "name": "punctuation.section.embedded.coffee"
+        }
+      }
+    },
+    {
+      "name": "punctuation.separator.decimal.period.coffee",
+      "match": "punctuation.separator.decimal.period.coffee",
+      "captures": {
+        "0": {
+          "name": "punctuation.separator.decimal.period.coffee"
+        }
+      }
+    },
+    {
+      "name": "punctuation.separator.delimiter.coffee",
+      "match": "punctuation.separator.delimiter.coffee",
+      "captures": {
+        "0": {
+          "name": "punctuation.separator.delimiter.coffee"
+        }
+      }
+    },
+    {
+      "name": "punctuation.separator.method.period.coffee",
+      "match": "punctuation.separator.method.period.coffee",
+      "captures": {
+        "0": {
+          "name": "punctuation.separator.method.period.coffee"
+        }
+      }
+    },
+    {
+      "name": "punctuation.separator.property.period.coffee",
+      "match": "punctuation.separator.property.period.coffee",
+      "captures": {
+        "0": {
+          "name": "punctuation.separator.property.period.coffee"
+        }
+      }
+    },
+    {
+      "name": "punctuation.terminator.statement.coffee",
+      "match": "punctuation.terminator.statement.coffee",
+      "captures": {
+        "0": {
+          "name": "punctuation.terminator.statement.coffee"
+        }
+      }
+    },
+    {
+      "name": "source.coffee.embedded.source",
+      "match": "source.coffee.embedded.source",
+      "captures": {
+        "0": {
+          "name": "source.coffee.embedded.source"
+        }
+      }
+    },
+    {
+      "name": "source.js.embedded.coffee",
+      "match": "source.js.embedded.coffee",
+      "captures": {
+        "0": {
+          "name": "source.js.embedded.coffee"
+        }
+      }
+    },
+    {
+      "name": "storage.type.annotation.coffee",
+      "match": "storage.type.annotation.coffee",
+      "captures": {
+        "0": {
+          "name": "storage.type.annotation.coffee"
+        }
+      }
+    },
+    {
+      "name": "storage.type.class.coffee",
+      "match": "storage.type.class.coffee",
+      "captures": {
+        "0": {
+          "name": "storage.type.class.coffee"
+        }
+      }
+    },
+    {
+      "name": "storage.type.function.coffee",
+      "match": "storage.type.function.coffee",
+      "captures": {
+        "0": {
+          "name": "storage.type.function.coffee"
+        }
+      }
+    },
+    {
+      "name": "string.quoted.double.coffee",
+      "match": "string.quoted.double.coffee",
+      "captures": {
+        "0": {
+          "name": "string.quoted.double.coffee"
+        }
+      }
+    },
+    {
+      "name": "string.quoted.double.heredoc.coffee",
+      "match": "string.quoted.double.heredoc.coffee",
+      "captures": {
+        "0": {
+          "name": "string.quoted.double.heredoc.coffee"
+        }
+      }
+    },
+    {
+      "name": "string.quoted.script.coffee",
+      "match": "string.quoted.script.coffee",
+      "captures": {
+        "0": {
+          "name": "string.quoted.script.coffee"
+        }
+      }
+    },
+    {
+      "name": "string.quoted.single.coffee",
+      "match": "string.quoted.single.coffee",
+      "captures": {
+        "0": {
+          "name": "string.quoted.single.coffee"
+        }
+      }
+    },
+    {
+      "name": "string.quoted.single.heredoc.coffee",
+      "match": "string.quoted.single.heredoc.coffee",
+      "captures": {
+        "0": {
+          "name": "string.quoted.single.heredoc.coffee"
+        }
+      }
+    },
+    {
+      "name": "string.regexp.coffee",
+      "match": "string.regexp.coffee",
+      "captures": {
+        "0": {
+          "name": "string.regexp.coffee"
+        }
+      }
+    },
+    {
+      "name": "string.regexp.multiline.coffee",
+      "match": "string.regexp.multiline.coffee",
+      "captures": {
+        "0": {
+          "name": "string.regexp.multiline.coffee"
+        }
+      }
+    },
+    {
+      "name": "support.class.coffee",
+      "match": "support.class.coffee",
+      "captures": {
+        "0": {
+          "name": "support.class.coffee"
+        }
+      }
+    },
+    {
+      "name": "support.function.coffee",
+      "match": "support.function.coffee",
+      "captures": {
+        "0": {
+          "name": "support.function.coffee"
+        }
+      }
+    },
+    {
+      "name": "support.function.console.coffee",
+      "match": "support.function.console.coffee",
+      "captures": {
+        "0": {
+          "name": "support.function.console.coffee"
+        }
+      }
+    },
+    {
+      "name": "support.function.dom.coffee",
+      "match": "support.function.dom.coffee",
+      "captures": {
+        "0": {
+          "name": "support.function.dom.coffee"
+        }
+      }
+    },
+    {
+      "name": "support.function.event-handler.coffee",
+      "match": "support.function.event-handler.coffee",
+      "captures": {
+        "0": {
+          "name": "support.function.event-handler.coffee"
+        }
+      }
+    },
+    {
+      "name": "support.function.method.array.coffee",
+      "match": "support.function.method.array.coffee",
+      "captures": {
+        "0": {
+          "name": "support.function.method.array.coffee"
+        }
+      }
+    },
+    {
+      "name": "support.function.static.array.coffee",
+      "match": "support.function.static.array.coffee",
+      "captures": {
+        "0": {
+          "name": "support.function.static.array.coffee"
+        }
+      }
+    },
+    {
+      "name": "support.function.static.math.coffee",
+      "match": "support.function.static.math.coffee",
+      "captures": {
+        "0": {
+          "name": "support.function.static.math.coffee"
+        }
+      }
+    },
+    {
+      "name": "support.function.static.number.coffee",
+      "match": "support.function.static.number.coffee",
+      "captures": {
+        "0": {
+          "name": "support.function.static.number.coffee"
+        }
+      }
+    },
+    {
+      "name": "support.function.static.object.coffee",
+      "match": "support.function.static.object.coffee",
+      "captures": {
+        "0": {
+          "name": "support.function.static.object.coffee"
+        }
+      }
+    },
+    {
+      "name": "support.variable.coffee",
+      "match": "support.variable.coffee",
+      "captures": {
+        "0": {
+          "name": "support.variable.coffee"
+        }
+      }
+    },
+    {
+      "name": "variable.assignment.coffee",
+      "match": "variable.assignment.coffee",
+      "captures": {
+        "0": {
+          "name": "variable.assignment.coffee"
+        }
+      }
+    },
+    {
+      "name": "variable.language.coffee",
+      "match": "variable.language.coffee",
+      "captures": {
+        "0": {
+          "name": "variable.language.coffee"
+        }
+      }
+    },
+    {
+      "name": "variable.language.super.coffee",
+      "match": "variable.language.super.coffee",
+      "captures": {
+        "0": {
+          "name": "variable.language.super.coffee"
+        }
+      }
+    },
+    {
+      "name": "variable.language.this.coffee",
+      "match": "variable.language.this.coffee",
+      "captures": {
+        "0": {
+          "name": "variable.language.this.coffee"
+        }
+      }
+    },
+    {
+      "name": "variable.language.arguments.coffee",
+      "match": "variable.language.arguments.coffee",
+      "captures": {
+        "0": {
+          "name": "variable.language.arguments.coffee"
+        }
+      }
+    },
+    {
+      "name": "variable.other.object.coffee",
+      "match": "variable.other.object.coffee",
+      "captures": {
+        "0": {
+          "name": "variable.other.object.coffee"
+        }
+      }
+    },
+    {
+      "name": "variable.other.object.property.coffee",
+      "match": "variable.other.object.property.coffee",
+      "captures": {
+        "0": {
+          "name": "variable.other.object.property.coffee"
+        }
+      }
+    },
+    {
+      "name": "variable.other.property.coffee",
+      "match": "variable.other.property.coffee",
+      "captures": {
+        "0": {
+          "name": "variable.other.property.coffee"
+        }
+      }
+    },
+    {
+      "name": "variable.other.readwrite.instance.coffee",
+      "match": "variable.other.readwrite.instance.coffee",
+      "captures": {
+        "0": {
+          "name": "variable.other.readwrite.instance.coffee"
+        }
+      }
+    },
+    {
+      "name": "variable.parameter.function.coffee",
+      "match": "variable.parameter.function.coffee",
+      "captures": {
+        "0": {
+          "name": "variable.parameter.function.coffee"
+        }
+      }
+    },
+    {
+      "name": "variable.parameter.function.readwrite.instance.coffee",
+      "match": "variable.parameter.function.readwrite.instance.coffee",
+      "captures": {
+        "0": {
+          "name": "variable.parameter.function.readwrite.instance.coffee"
+        }
+      }
+    }
+  ]
+}

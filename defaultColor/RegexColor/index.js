@@ -1,9 +1,7 @@
-// cat ./syntaxes/coffee/coffee.tmLanguage.yml | grep 'name:' | sed -e 's/ //g' | sed -e 's/name://g' | sed -e 's/^-//g' | sort | uniq > ./src/scope_color/index.cotfea
-
-import { __ } from '../util.js'
+import { __ } from '../../src/util.js'
 
 const confArr = Deno.readTextFileSync(
-  `${__.dirname(import.meta.url)}/index.cotfea`
+  `${__.dirname(import.meta.url)}/tmLanguage.bk.cotfea`
 )
 .split('\n')
 .filter(
