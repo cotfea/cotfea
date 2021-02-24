@@ -2,25 +2,19 @@ import { patternsPeer } from './util.js'
 import patternColor from './color.js'
 
 const patterns = [
-    {
-      begin: '{'
-    , end: '}'
-    }
-  , {
-      begin: '\\('
-    , end: '\\)'
-    }
-  , {
-      begin: '\\['
-    , end: '\\]'
-    }
+    "'"
+  , '"'
+  , '"{3}'
+  // , '`'
+  // , '`{3}'
   ]
   .reduce(
     (r, c) =>
       [
         patternsPeer({
           sign: c
-        , color: patternColor.bracket
+        , color: patternColor.string
+        , name: patternColor.string
         })
       , ...r
       ]

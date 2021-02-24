@@ -35,7 +35,8 @@
       {
         "language": "cotfea",
         "scopeName": "source.cotfea",
-        "path": "./DefaultColor/RegexColor/cotfea.tmLanguage.json"
+        "path": "./syntaxes/cotfea.tmLanguage.json",
+        "path_comment": "./DefaultColor/RegexColor/cotfea.tmLanguage.json"
       }
     ]
   },
