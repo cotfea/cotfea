@@ -5,8 +5,8 @@ import {
   patternsWapper
 } from './patterns/util.js'
 
-// import comment_multiLine from './patterns/comment.multiLine.js'
-// import comment_oneLine from './patterns/comment.oneline.js'
+import comment_multiLine from './patterns/comment.multiLine.js'
+import comment_oneLine from './patterns/comment.oneline.js'
 
 // import quoted_string from './patterns/quoted_string.js'
 // import heredoc from './patterns/heredoc.js'
@@ -31,8 +31,8 @@ const tmLanguageConfig = {
     ...bracket
   , ...string
 
-  //   comment_multiLine
-  // , comment_oneLine
+  , comment_multiLine
+  , comment_oneLine
 
   // , include("#signle_quoted_string")
   // , include("#double_quoted_string")
