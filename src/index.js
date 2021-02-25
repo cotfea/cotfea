@@ -17,7 +17,7 @@ import comment_oneLine from './patterns/comment.oneline.js'
 
 // import array_sign from './patterns/array_sign.js'
 
-// import numbers from './patterns/numbers.js'
+import numbers from './patterns/numbers.js'
 // import operators from './patterns/operators/index.js'
 
 import bracket from './patterns/bracket.js'
@@ -50,17 +50,17 @@ const tmLanguageConfig = {
   // , include("#operators")
 
   ])
-// , repository: {
+, repository: {
 
 //     double_quoted_string:
 //       patternsWapper(quoted_string.double)
 //   , single_quoted_string:
 //       patternsWapper(quoted_string.single)
 
-//   , numbers: patternsWapper(numbers)
+    numbers: patternsWapper(numbers)
 //   , operators: patternsWapper(operators)
 
-//   }
+  }
 }
 
 export default tmLanguageConfig
