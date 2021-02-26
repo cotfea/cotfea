@@ -180,7 +180,6 @@ const pattern = [
             Reg.group('\\.')
           , mulNum
           ])
-        ])
 
           // 1
         , Reg.unGroup()
@@ -190,6 +189,10 @@ const pattern = [
           , b
           , Reg.notFollowedBy('\\.')
           ])
+
+        ])
+
+      , Reg.notFollowedBy('\\$')
       ])
 
       .toString()

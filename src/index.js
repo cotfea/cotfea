@@ -1,8 +1,7 @@
 import { __ } from './util.js'
 import {
-  // include
-// , 
-  patternsWapper
+  include
+, patternsWapper
 } from './patterns/util.js'
 
 import comment_multiLine from './patterns/comment.multiLine.js'
@@ -46,7 +45,7 @@ const tmLanguageConfig = {
 
   // , array_sign
 
-  // , include("#numbers")
+  , include("#numbers")
   // , include("#operators")
 
   ])
