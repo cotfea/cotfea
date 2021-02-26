@@ -31,8 +31,11 @@ const color = {
   // variable.language.arguments.coffee
 , variable: 'variable.language.coffee'
 , constant: 'constant.language.coffee'
-, operator: 'keyword.operator.coffee'
-, keyword: 'keyword.control.coffee'
+  // keyword.operator.coffee
+  // keyword.control.coffee
+  // keyword.operator.new.coffee
+, operator: 'constant.character.escape.backslash.coffee'
+, keyword: 'keyword.operator.new.coffee'
 
 , namespace: 'support.variable.coffee'
 , label: 'support.variable.coffee'

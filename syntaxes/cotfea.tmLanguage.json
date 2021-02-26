@@ -127,6 +127,9 @@
     },
     {
       "include": "#numbers"
+    },
+    {
+      "include": "#operators"
     }
   ],
   "repository": {
@@ -167,6 +170,29 @@
             },
             "6": {
               "name": "punctuation.separator.decimal.period.coffee"
+            }
+          }
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "match": "\\+|-|\\*|/|%",
+          "name": "constant.character.escape.backslash.coffee"
+        },
+        {
+          "match": "\\+\\+|--",
+          "name": "constant.character.escape.backslash.coffee"
+        },
+        {
+          "match": "([a-zA-Z$_][\\w$]*)?\\s*(=)",
+          "captures": {
+            "1": {
+              "name": "variable.language.coffee"
+            },
+            "2": {
+              "name": "constant.character.escape.backslash.coffee"
             }
           }
         }

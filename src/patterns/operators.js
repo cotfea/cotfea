@@ -30,8 +30,19 @@ const pattern = [
   , name: color.operator
   }
 , {
-    match: '='
-  , name: color.operator
+    match:
+      Reg.pipe([
+        preVar
+      , Reg.group('=')
+      ]).toString()
+  , captures: {
+      1: {
+        name: color.variable
+      }
+    , 2: {
+        name: color.operator
+      }
+    }
   }
 ]
 
