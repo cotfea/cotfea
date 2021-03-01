@@ -1,12 +1,78 @@
-[array]
-{object}
-(group)
+Reg = importFrom "../../packages/regGener/src/index.js"
+color = importFrom "./color.js"
 
-'string'string'string'
-"String"String"String"
-"""
-  Strings
-"""
+preVar =
+  Reg.pipe [
+    Reg.group()
+    .pipe [
+      Reg.oneOf [
+        'a-z'
+        'A-Z'
+        '$_'
+      ]
+      Reg.oneOf
+        - '\\w' - '$'
+      '*'
+    ]
+    '?'
+    '\\s*'
+  ]
 
-a = 2
-b = 2.2
+pattern = [
+  ...[
+    # base
+    '\\+|-|\\*|/|%'
+    # decrement && increment
+    '\\+\\+|--'
+    '<<|>>>|>>'
+    '!=|<=|>=|==|={3}|>|<'
+    '&&|!|\\|\\|'
+    '&|\\||\\^|~'
+    '\\.\\.\\.'
+    '\\?'
+  ]
+  .reduce(
+    (r, c) => [
+      ...r
+      - match: c
+        name: color.operator
+    ]
+    []
+  )
+  ...[
+    Reg.or
+      - '='
+      - '\\+=' - '-=' - '*=' - '/=' - '%='
+      - '&&=' - '\\|\\|=' - '\\?='
+    Reg.or
+      - '&=' - '|=' - '\\^='
+      - '<<=' - '>>='
+      - '>>>='
+  ]
+  .reduce(
+    (r, c) => [
+      ...r
+      Reg
+      .pipe [
+        preVar
+        Reg.group(c)
+      ]
+      .toString()
+    ]
+    []
+  )
+  .reduce(
+    (r, c) => [
+      ...r
+      match: c
+      captures:
+        1:
+          name: color.variable
+        2:
+          name: color.operator
+    ]
+    []
+  )
+]
+
+export.default pattern

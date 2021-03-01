@@ -21,6 +21,11 @@ const patterns = [
         patternsPeer({
           sign: c
         , color: patternColor.bracket
+        , options: {
+            patterns: [{
+              include: '$self'
+            }]
+          }
         })
       , ...r
       ]

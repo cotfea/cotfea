@@ -14,7 +14,12 @@
         "0": {
           "name": "constant.character.escape.backslash.coffee"
         }
-      }
+      },
+      "patterns": [
+        {
+          "include": "$self"
+        }
+      ]
     },
     {
       "begin": "\\(",
@@ -28,7 +33,12 @@
         "0": {
           "name": "constant.character.escape.backslash.coffee"
         }
-      }
+      },
+      "patterns": [
+        {
+          "include": "$self"
+        }
+      ]
     },
     {
       "begin": "{",
@@ -42,7 +52,12 @@
         "0": {
           "name": "constant.character.escape.backslash.coffee"
         }
-      }
+      },
+      "patterns": [
+        {
+          "include": "$self"
+        }
+      ]
     },
     {
       "name": "string.quoted.script.coffee",
@@ -186,7 +201,42 @@
           "name": "constant.character.escape.backslash.coffee"
         },
         {
-          "match": "([a-zA-Z$_][\\w$]*)?\\s*(=)",
+          "match": "<<|>>>|>>",
+          "name": "constant.character.escape.backslash.coffee"
+        },
+        {
+          "match": "!=|<=|>=|==|={3}|>|<",
+          "name": "constant.character.escape.backslash.coffee"
+        },
+        {
+          "match": "&&|!|\\|\\|",
+          "name": "constant.character.escape.backslash.coffee"
+        },
+        {
+          "match": "&|\\||\\^|~",
+          "name": "constant.character.escape.backslash.coffee"
+        },
+        {
+          "match": "\\.\\.\\.",
+          "name": "constant.character.escape.backslash.coffee"
+        },
+        {
+          "match": "\\?",
+          "name": "constant.character.escape.backslash.coffee"
+        },
+        {
+          "match": "([a-zA-Z$_][\\w$]*)?\\s*(=|\\+=|-=|\\*=|/=|%=|&&=|\\|\\|=|\\?=)",
+          "captures": {
+            "1": {
+              "name": "variable.language.coffee"
+            },
+            "2": {
+              "name": "constant.character.escape.backslash.coffee"
+            }
+          }
+        },
+        {
+          "match": "([a-zA-Z$_][\\w$]*)?\\s*(&=|\\|=|\\^=|<<=|>>=|>>>=)",
           "captures": {
             "1": {
               "name": "variable.language.coffee"
