@@ -21,29 +21,76 @@ const preVar =
   ])
 
 const pattern = [
-  { // base
-    match: '\\+|-|\\*|/|%'
-  , name: color.operator
-  }
-, { // decrement && increment
-    match: '\\+\\+|--'
-  , name: color.operator
-  }
-, {
-    match:
-      Reg.pipe([
+  ...[
+    // base
+    '\\+|-|\\*|/|%'
+    // decrement && increment
+  , '\\+\\+|--'
+  , '<<|>>>|>>'
+  , '!=|<=|>=|==|={3}|>|<'
+  , '&&|!|\\|\\|'
+  , '&|\\||\\^|~'
+  , '\\.\\.\\.'
+  , '\\?'
+  ]
+  .reduce(
+    (r, c) => [
+      ...r
+    , {
+        match: c 
+      , name: color.operator
+      }
+    ]
+  , []
+  )
+, ...[
+    Reg.or([
+      '='
+    , '\\+='
+    , '-='
+    , '*='
+    , '/='
+    , '%='
+    , '&&='
+    , '\\|\\|='
+    , '\\?='
+    ])
+  , Reg.or([
+      '&='
+    , '|='
+    , '\\^='
+    , '<<='
+    , '>>='
+    , '>>>='
+    ])
+  ]
+  .reduce(
+    (r, c) => [
+      ...r
+    , Reg.pipe([
         preVar
-      , Reg.group('=')
+      , Reg.group(c)
       ]).toString()
-  , captures: {
-      1: {
-        name: color.variable
+    ]
+  , []
+  )
+  .reduce(
+    (r, c) => [
+      ...r
+    , {
+        match: c
+      , captures: {
+          1: {
+            name: color.variable
+          }
+        , 2: {
+            name: color.operator
+          }
+        }
       }
-    , 2: {
-        name: color.operator
-      }
-    }
-  }
+    ]
+  , []
+  )
 ]
 
 export default pattern
