@@ -225,10 +225,14 @@
           "name": "constant.character.escape.backslash.coffee"
         },
         {
+          "match": "_",
+          "name": "constant.character.escape.backslash.coffee"
+        },
+        {
           "match": "([a-zA-Z$_][\\w$]*)?\\s*(=|\\+=|-=|\\*=|/=|%=|&&=|\\|\\|=|\\?=)",
           "captures": {
             "1": {
-              "name": "variable.language.coffee"
+              "name": "meta.object-binding-pattern-variable.js meta.definition.variable.js variable.other.constant.js"
             },
             "2": {
               "name": "constant.character.escape.backslash.coffee"
@@ -239,7 +243,7 @@
           "match": "([a-zA-Z$_][\\w$]*)?\\s*(&=|\\|=|\\^=|<<=|>>=|>>>=)",
           "captures": {
             "1": {
-              "name": "variable.language.coffee"
+              "name": "meta.object-binding-pattern-variable.js meta.definition.variable.js variable.other.constant.js"
             },
             "2": {
               "name": "constant.character.escape.backslash.coffee"

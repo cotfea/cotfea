@@ -29,8 +29,8 @@ const color = {
   // variable.language.super.coffee
   // variable.language.this.coffee
   // variable.language.arguments.coffee
-, variable: 'variable.language.coffee'
-, constant: 'constant.language.coffee'
+, variable: 'meta.object-binding-pattern-variable.js meta.definition.variable.js variable.other.constant.js'
+, constant: 'support.constant.json.js'
   // keyword.operator.coffee
   // keyword.control.coffee
   // keyword.operator.new.coffee
