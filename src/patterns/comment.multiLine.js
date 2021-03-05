@@ -1,7 +1,7 @@
 import {
   patternsWapper
 , patternsPeer
-} from './util.js'
+} from './utils/util.js'
 import Reg from '../../packages/regGener/index.js'
 
 const capturesColor =

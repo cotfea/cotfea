@@ -61,13 +61,13 @@
     },
     {
       "name": "string.quoted.script.coffee",
-      "begin": "\"{3}",
+      "begin": "'",
       "beginCaptures": {
         "0": {
           "name": "string.quoted.script.coffee"
         }
       },
-      "end": "\"{3}",
+      "end": "'",
       "endCaptures": {
         "0": {
           "name": "string.quoted.script.coffee"
@@ -91,13 +91,13 @@
     },
     {
       "name": "string.quoted.script.coffee",
-      "begin": "'",
+      "begin": "\"{3}",
       "beginCaptures": {
         "0": {
           "name": "string.quoted.script.coffee"
         }
       },
-      "end": "'",
+      "end": "\"{3}",
       "endCaptures": {
         "0": {
           "name": "string.quoted.script.coffee"

@@ -1,5 +1,5 @@
-import { patternsPeer } from './util.js'
-import patternColor from './color.js'
+import { patternsPeer } from './utils/util.js'
+import patternColor from './utils/color.js'
 
 const patterns = [
     {

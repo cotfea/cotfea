@@ -36,22 +36,24 @@ const color = {
   // keyword.operator.new.coffee
 , operator: 'constant.character.escape.backslash.coffee'
 , keyword: 'keyword.operator.new.coffee'
+, buildinKeyword: 'variable.language.coffee'
+, buildinObjFunc: 'support.function.console.coffee'
 
-, namespace: 'support.variable.coffee'
-, label: 'support.variable.coffee'
+// , namespace: 'support.variable.coffee'
+// , label: 'support.variable.coffee'
 
-, enum: 'storage.type.class.coffee'
-, type: 'storage.type.class.coffee'
-, typeParameter: 'storage.type.annotation.coffee'
+// , enum: 'storage.type.class.coffee'
+// , type: 'storage.type.class.coffee'
+// , typeParameter: 'storage.type.annotation.coffee'
 
-, struct: 'storage.type.class.coffee'
-, class: 'support.variable.coffee'
-, klass: 'storage.type.function.coffee'
-, interface: 'storage.type.class.coffee'
+// , struct: 'storage.type.class.coffee'
+// , class: 'support.variable.coffee'
+// , klass: 'storage.type.function.coffee'
+// , interface: 'storage.type.class.coffee'
 
 , function: 'storage.type.function.coffee'
 , method: 'storage.type.function.coffee'
-, macro: 'storage.type.function.coffee'
+// , macro: 'storage.type.function.coffee'
 , parameter: 'variable.parameter.function.coffee'
 
   // variable.other.property.coffee
@@ -59,9 +61,6 @@ const color = {
 , property: 'variable.other.property.coffee'
 
 , funcCall: 'meta.function-call.coffee'
-
-, buildinKeyword: 'variable.language.coffee'
-, buildinObjFunc: 'support.function.console.coffee'
 
 , error: 'invalid.illegal.identifier.coffee'
 }

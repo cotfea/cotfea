@@ -1,5 +1,5 @@
 import Reg from "../../packages/regGener/src/index.js"
-import color from "./color.js"
+import color from "./utils/color.js"
 
 const preVar =
   Reg.pipe([

@@ -2,7 +2,7 @@ import { __ } from './util.js'
 import {
   include
 , patternsWapper
-} from './patterns/util.js'
+} from './patterns/utils/util.js'
 
 import comment_multiLine from './patterns/comment.multiLine.js'
 import comment_oneLine from './patterns/comment.oneline.js'

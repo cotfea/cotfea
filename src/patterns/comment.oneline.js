@@ -1,4 +1,4 @@
-import { patternsPeer } from './util.js'
+import { patternsPeer } from './utils/util.js'
 
 const comment = patternsPeer({
   name: "comment.line.number-sign.cotfea"
