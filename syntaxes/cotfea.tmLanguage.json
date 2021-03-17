@@ -141,6 +141,14 @@
       "end": "$"
     },
     {
+      "patterns": [
+        {
+          "match": "(?<=\\.)\\w*\\b",
+          "name": "meta.method-call.java meta.method"
+        }
+      ]
+    },
+    {
       "include": "#numbers"
     },
     {

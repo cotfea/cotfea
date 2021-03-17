@@ -33,14 +33,13 @@ pattern = [
     '\\.\\.\\.'
     '\\?'
   ]
-  .reduce(
+  .reduce
     (r, c) => [
       ...r
       match: c
       name: color.operator
     ]
     []
-  )
   ...[
     Reg.or
       _ '='
@@ -52,7 +51,7 @@ pattern = [
       _ '<<=' _ '>>='
       _ '>>>='
   ]
-  .reduce(
+  .reduce
     (r, c) => [
       ...r
       Reg
@@ -63,8 +62,7 @@ pattern = [
       .toString()
     ]
     []
-  )
-  .reduce(
+  .reduce
     (r, c) => [
       ...r
       match: c
@@ -75,7 +73,6 @@ pattern = [
           name: color.operator
     ]
     []
-  )
 ]
 
 export.default pattern

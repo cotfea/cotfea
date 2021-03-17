@@ -38,6 +38,13 @@
         "path": "./syntaxes/cotfea.tmLanguage.json",
         "path_comment": "./DefaultColor/RegexColor/cotfea.tmLanguage.json"
       }
+    ],
+    "themes": [
+      {
+        "label": "GapStyle VS",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Sorcisto-color-theme.json"
+      }
     ]
   },
   "devDependencies": {

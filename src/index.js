@@ -13,6 +13,8 @@ import operators from './patterns/operators.js'
 import bracket from './patterns/bracket.js'
 import string from './patterns/string.js'
 
+import method from './patterns/method.js'
+
 const tmLanguageConfig = {
   name: 'CoTFea'
 , scopeName: 'source.cotfea'
@@ -23,6 +25,8 @@ const tmLanguageConfig = {
 
   , comment_multiLine
   , comment_oneLine
+
+  , method
 
   , include("#numbers")
   , include("#operators")

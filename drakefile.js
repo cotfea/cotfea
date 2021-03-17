@@ -32,4 +32,52 @@ task(
     )
 })
 
+desc('theme generator')
+task(
+  'theme'
+, []
+, async function() {
+ 
+  // https://raw.githubusercontent.com/wesbos/cobalt2-vscode/master/theme/cobalt2.json
+  // https://raw.githubusercontent.com/gaplo917/GapStyle/master/vscode/src/gapstyle.yml
+
+  const res = await fetch('https://raw.githubusercontent.com/wesbos/cobalt2-vscode/master/theme/cobalt2.json')
+
+  const objByteArr = await
+    res.body
+    .getReader()
+    .read()
+
+  const {done, value} = objByteArr
+
+  if (done) {
+    return
+  }
+
+  const str =
+    value
+    .reduce(
+      (r, c) => [
+        ...r
+      , String.fromCharCode(c)
+      ]
+    , []
+    )
+    .join('')
+
+  console.log(
+    JSON.stringify(
+      JSON.parse(
+        str.replace(/.*\/\/.*\n/g, '')
+        .replace(/,(?=\n.*[}|\]])/g, '')
+      )
+    , null
+    , 2
+    )
+  )
+
+  // console.log(JSON.stringify(JSON.parse(str)), null, 2)
+
+})
+
 run()
