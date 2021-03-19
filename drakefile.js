@@ -7,6 +7,18 @@ import {
 import { __ } from './src/util.js'
 import tmlangConfig from './src/index.js'
 
+import {
+  gitRawJson
+, jsonParse
+} from './drake/index.js'
+
+import {
+  parse as yamlParse
+// , parseAll as yamlParseAll
+, stringify as yamlStringify
+} from 'https://deno.land/std@0.82.0/encoding/yaml.ts';
+
+
 desc('Hello World!!!')
 task(
   'hello'
@@ -41,36 +53,12 @@ task(
   // https://raw.githubusercontent.com/wesbos/cobalt2-vscode/master/theme/cobalt2.json
   // https://raw.githubusercontent.com/gaplo917/GapStyle/master/vscode/src/gapstyle.yml
 
-  const res = await fetch('https://raw.githubusercontent.com/wesbos/cobalt2-vscode/master/theme/cobalt2.json')
-
-  const objByteArr = await
-    res.body
-    .getReader()
-    .read()
-
-  const {done, value} = objByteArr
-
-  if (done) {
-    return
-  }
-
-  const str =
-    value
-    .reduce(
-      (r, c) => [
-        ...r
-      , String.fromCharCode(c)
-      ]
-    , []
-    )
-    .join('')
+  const url = 'https://raw.githubusercontent.com/gaplo917/GapStyle/master/vscode/src/gapstyle.yml'
 
   console.log(
     JSON.stringify(
-      JSON.parse(
-        str.replace(/.*\/\/.*\n/g, '')
-        .replace(/,(?=\n.*[}|\]])/g, '')
-      )
+      yamlParse(await gitRawJson(url))
+      // jsonParse(await gitRawJson(url))
     , null
     , 2
     )
