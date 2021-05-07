@@ -53,12 +53,20 @@ task(
   // https://raw.githubusercontent.com/wesbos/cobalt2-vscode/master/theme/cobalt2.json
   // https://raw.githubusercontent.com/gaplo917/GapStyle/master/vscode/src/gapstyle.yml
 
-  const url = 'https://raw.githubusercontent.com/gaplo917/GapStyle/master/vscode/src/gapstyle.yml'
+  const url = {
+    gapstyle: 'https://raw.githubusercontent.com/gaplo917/GapStyle/master/vscode/src/gapstyle.yml'
+  , cobalt2: 'https://raw.githubusercontent.com/wesbos/cobalt2-vscode/master/theme/cobalt2.json'
+  }
+
+  const jsonStr = {
+    gapstyle: yamlParse(await gitRawJson(url.gapstyle))
+  , cobalt2: jsonParse(await gitRawJson(url.cobalt2))
+  }
 
   console.log(
     JSON.stringify(
-      yamlParse(await gitRawJson(url))
-      // jsonParse(await gitRawJson(url))
+      // jsonStr.gapstyle
+      jsonStr.cobalt2
     , null
     , 2
     )

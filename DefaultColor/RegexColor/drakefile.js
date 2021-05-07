@@ -8,8 +8,7 @@ import {
 import genJson from './index.js'
 import {
   patternsWapper
-} from '../../src/patterns/util.js'
-
+} from '../../src/patterns/utils/util.js'
 
 desc('Hello World!!!')
 task(

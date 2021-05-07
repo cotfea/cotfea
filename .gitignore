@@ -3,3 +3,7 @@ node_modules
 /yarn*
 
 /.cache
+
+/.pnpm-store
+/.pnpm-debug.log
+/pnpm-lock.yaml
